@@ -10,7 +10,7 @@ const Index = () => {
   return (
     <>
       <Navbar />
-      <main className="font-body">
+      <main className="font-body scroll-smooth">
         <Hero />
         <About />
         <Services />

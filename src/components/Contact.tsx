@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Instagram, Facebook, MessageCircle, Send, Star } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export const Contact = () => {
@@ -31,34 +31,41 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-secondary to-background">
-      <div className="container mx-auto px-6">
-        {/* Section Header */}
-        <div className="text-center mb-20">
-          <h2 className="font-display text-5xl md:text-6xl font-bold text-foreground mb-6">
+    <section id="contact" className="py-32 bg-gradient-to-b from-secondary/30 to-background relative overflow-hidden">
+      {/* Enhanced background texture */}
+      <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_80%_20%,rgba(217,_155,_55,_0.2)_0%,transparent_50%)]"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Enhanced Section Header */}
+        <div className="text-center mb-24">
+          <h2 className="font-display text-6xl md:text-7xl font-bold text-foreground mb-8">
             Get In <span className="bg-gradient-to-r from-primary to-yellow-500 bg-clip-text text-transparent">Touch</span>
           </h2>
-          <p className="font-body text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-            Ready to experience luxury? Contact us to book your appointment or learn more about our services
+          <p className="font-body text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-10">
+            Ready to experience luxury? Contact us to book your appointment or learn more about our premium services
           </p>
           
-          <div className="flex items-center justify-center">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent to-primary"></div>
-            <div className="mx-4 w-3 h-3 rounded-full bg-primary"></div>
-            <div className="h-px w-24 bg-gradient-to-l from-transparent to-primary"></div>
+          <div className="flex items-center justify-center mb-12">
+            <div className="h-px w-32 bg-gradient-to-r from-transparent to-primary"></div>
+            <Send className="mx-6 h-8 w-8 text-primary animate-pulse" />
+            <div className="h-px w-32 bg-gradient-to-l from-transparent to-primary"></div>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Contact Form */}
+        <div className="grid lg:grid-cols-2 gap-20">
+          {/* Enhanced Contact Form */}
           <div className="animate-fade-in">
-            <div className="bg-gradient-to-br from-background to-muted p-8 rounded-2xl shadow-elegant border border-border/50">
-              <h3 className="font-display text-3xl font-semibold text-foreground mb-8">Send us a message</h3>
+            <div className="bg-gradient-to-br from-background/90 to-muted/50 p-10 rounded-3xl shadow-premium border border-border/50 backdrop-blur-sm relative overflow-hidden">
+              {/* Decorative corner elements */}
+              <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-primary/20 rounded-tl-3xl"></div>
+              <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-primary/20 rounded-br-3xl"></div>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block font-body text-sm font-medium text-foreground mb-2">
+              <h3 className="font-display text-3xl font-semibold text-foreground mb-10">Send us a message</h3>
+              
+              <form onSubmit={handleSubmit} className="space-y-8">
+                <div className="grid sm:grid-cols-2 gap-8">
+                  <div className="space-y-3">
+                    <label htmlFor="name" className="block font-body text-sm font-medium text-foreground">
                       Full Name
                     </label>
                     <Input
@@ -67,12 +74,12 @@ export const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Your name"
-                      className="bg-background border-border/50 focus:border-primary transition-colors"
+                      className="bg-background/80 border-border/50 focus:border-primary transition-all duration-300 h-14 text-base rounded-xl"
                       required
                     />
                   </div>
-                  <div>
-                    <label htmlFor="phone" className="block font-body text-sm font-medium text-foreground mb-2">
+                  <div className="space-y-3">
+                    <label htmlFor="phone" className="block font-body text-sm font-medium text-foreground">
                       Phone Number
                     </label>
                     <Input
@@ -81,13 +88,13 @@ export const Contact = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="Your phone"
-                      className="bg-background border-border/50 focus:border-primary transition-colors"
+                      className="bg-background/80 border-border/50 focus:border-primary transition-all duration-300 h-14 text-base rounded-xl"
                     />
                   </div>
                 </div>
                 
-                <div>
-                  <label htmlFor="email" className="block font-body text-sm font-medium text-foreground mb-2">
+                <div className="space-y-3">
+                  <label htmlFor="email" className="block font-body text-sm font-medium text-foreground">
                     Email Address
                   </label>
                   <Input
@@ -97,13 +104,13 @@ export const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="your.email@example.com"
-                    className="bg-background border-border/50 focus:border-primary transition-colors"
+                    className="bg-background/80 border-border/50 focus:border-primary transition-all duration-300 h-14 text-base rounded-xl"
                     required
                   />
                 </div>
                 
-                <div>
-                  <label htmlFor="message" className="block font-body text-sm font-medium text-foreground mb-2">
+                <div className="space-y-3">
+                  <label htmlFor="message" className="block font-body text-sm font-medium text-foreground">
                     Message
                   </label>
                   <Textarea
@@ -112,69 +119,85 @@ export const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Tell us about your needs or questions..."
-                    className="bg-background border-border/50 focus:border-primary transition-colors min-h-32"
-                    rows={4}
+                    className="bg-background/80 border-border/50 focus:border-primary transition-all duration-300 min-h-40 text-base rounded-xl resize-none"
+                    rows={5}
                   />
                 </div>
                 
-                <Button 
-                  type="submit" 
-                  variant="hero" 
-                  className="w-full text-lg py-6 rounded-xl mb-4"
-                >
-                  Send Message
-                </Button>
-                
-                <Button 
-                  variant="luxury" 
-                  className="w-full text-lg py-6 rounded-xl"
-                >
-                  Book Appointment
-                </Button>
+                <div className="space-y-6">
+                  <Button 
+                    type="submit" 
+                    variant="hero" 
+                    className="w-full text-lg py-8 rounded-2xl shadow-gold hover:shadow-xl transition-all duration-500 transform hover:scale-105"
+                  >
+                    <Send className="mr-3 h-6 w-6" />
+                    Send Message
+                  </Button>
+                  
+                  <Button 
+                    variant="luxury" 
+                    className="w-full text-lg py-8 rounded-2xl shadow-elegant hover:shadow-xl transition-all duration-500 transform hover:scale-105"
+                  >
+                    <Star className="mr-3 h-6 w-6" />
+                    Book Appointment
+                  </Button>
+                </div>
               </form>
             </div>
           </div>
 
-          {/* Contact Information */}
+          {/* Enhanced Contact Information */}
           <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <div className="space-y-8">
-              {/* Contact Details */}
-              <div className="bg-gradient-to-br from-background to-muted p-8 rounded-2xl shadow-elegant border border-border/50">
-                <h3 className="font-display text-3xl font-semibold text-foreground mb-8">Visit our salon</h3>
+            <div className="space-y-10">
+              {/* Enhanced Contact Details */}
+              <div className="bg-gradient-to-br from-background/90 to-muted/50 p-10 rounded-3xl shadow-premium border border-border/50 backdrop-blur-sm relative overflow-hidden">
+                {/* Decorative corner elements */}
+                <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-primary/20 rounded-tl-3xl"></div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-primary/20 rounded-br-3xl"></div>
                 
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <MapPin className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                <h3 className="font-display text-3xl font-semibold text-foreground mb-10">Visit our salon</h3>
+                
+                <div className="space-y-8">
+                  <div className="flex items-start space-x-5 group">
+                    <div className="p-3 rounded-xl bg-gradient-to-r from-primary/10 to-yellow-500/10 group-hover:from-primary/20 group-hover:to-yellow-500/20 transition-all duration-300">
+                      <MapPin className="h-7 w-7 text-primary" />
+                    </div>
                     <div>
-                      <h4 className="font-body font-semibold text-foreground">Address</h4>
-                      <p className="font-body text-muted-foreground">
+                      <h4 className="font-body font-semibold text-foreground text-lg mb-2">Address</h4>
+                      <p className="font-body text-muted-foreground leading-relaxed">
                         123 Luxury Avenue<br />
                         Beverly Hills, CA 90210
                       </p>
                     </div>
                   </div>
                   
-                  <div className="flex items-start space-x-4">
-                    <Phone className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                  <div className="flex items-start space-x-5 group">
+                    <div className="p-3 rounded-xl bg-gradient-to-r from-primary/10 to-yellow-500/10 group-hover:from-primary/20 group-hover:to-yellow-500/20 transition-all duration-300">
+                      <Phone className="h-7 w-7 text-primary" />
+                    </div>
                     <div>
-                      <h4 className="font-body font-semibold text-foreground">Phone</h4>
+                      <h4 className="font-body font-semibold text-foreground text-lg mb-2">Phone</h4>
                       <p className="font-body text-muted-foreground">+1 (234) 567-8900</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-start space-x-4">
-                    <Mail className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                  <div className="flex items-start space-x-5 group">
+                    <div className="p-3 rounded-xl bg-gradient-to-r from-primary/10 to-yellow-500/10 group-hover:from-primary/20 group-hover:to-yellow-500/20 transition-all duration-300">
+                      <Mail className="h-7 w-7 text-primary" />
+                    </div>
                     <div>
-                      <h4 className="font-body font-semibold text-foreground">Email</h4>
+                      <h4 className="font-body font-semibold text-foreground text-lg mb-2">Email</h4>
                       <p className="font-body text-muted-foreground">info@scraftsalon.com</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-start space-x-4">
-                    <Clock className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                  <div className="flex items-start space-x-5 group">
+                    <div className="p-3 rounded-xl bg-gradient-to-r from-primary/10 to-yellow-500/10 group-hover:from-primary/20 group-hover:to-yellow-500/20 transition-all duration-300">
+                      <Clock className="h-7 w-7 text-primary" />
+                    </div>
                     <div>
-                      <h4 className="font-body font-semibold text-foreground">Hours</h4>
-                      <div className="font-body text-muted-foreground space-y-1">
+                      <h4 className="font-body font-semibold text-foreground text-lg mb-2">Hours</h4>
+                      <div className="font-body text-muted-foreground space-y-2">
                         <p>Mon - Fri: 9:00 AM - 8:00 PM</p>
                         <p>Saturday: 8:00 AM - 6:00 PM</p>
                         <p>Sunday: 10:00 AM - 5:00 PM</p>
@@ -184,28 +207,30 @@ export const Contact = () => {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div className="bg-gradient-to-br from-muted to-secondary p-8 rounded-2xl shadow-elegant border border-primary/20 h-64 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(217,_155,_55,_0.15)_0%,transparent_50%)]"></div>
+              {/* Enhanced Map Placeholder */}
+              <div className="bg-gradient-to-br from-muted/50 to-secondary/30 p-10 rounded-3xl shadow-elegant border border-primary/20 h-80 flex items-center justify-center relative overflow-hidden group">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(217,_155,_55,_0.15)_0%,transparent_50%)] group-hover:opacity-75 transition-opacity duration-500"></div>
                 <div className="text-center relative z-10">
-                  <MapPin className="h-12 w-12 text-primary mx-auto mb-4 animate-pulse" />
-                  <h4 className="font-display text-xl font-semibold text-foreground mb-2">Find Us Here</h4>
-                  <p className="font-body text-muted-foreground">123 Luxury Avenue, Beverly Hills</p>
+                  <div className="w-20 h-20 bg-gradient-to-r from-primary/20 to-yellow-500/20 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-500">
+                    <MapPin className="h-10 w-10 text-primary" />
+                  </div>
+                  <h4 className="font-display text-2xl font-semibold text-foreground mb-3">Find Us Here</h4>
+                  <p className="font-body text-muted-foreground text-lg">123 Luxury Avenue, Beverly Hills</p>
                 </div>
               </div>
 
-              {/* Social Media & Quick Actions */}
-              <div className="grid sm:grid-cols-3 gap-4">
-                <Button variant="luxury" className="h-16 rounded-xl">
-                  <Instagram className="h-5 w-5 mr-2" />
+              {/* Enhanced Social Media & Quick Actions */}
+              <div className="grid sm:grid-cols-3 gap-6">
+                <Button variant="luxury" className="h-20 rounded-2xl shadow-elegant hover:shadow-gold transition-all duration-300 transform hover:scale-105">
+                  <Instagram className="h-6 w-6 mr-3" />
                   Instagram
                 </Button>
-                <Button variant="luxury" className="h-16 rounded-xl">
-                  <Facebook className="h-5 w-5 mr-2" />
+                <Button variant="luxury" className="h-20 rounded-2xl shadow-elegant hover:shadow-gold transition-all duration-300 transform hover:scale-105">
+                  <Facebook className="h-6 w-6 mr-3" />
                   Facebook
                 </Button>
-                <Button variant="luxury" className="h-16 rounded-xl">
-                  <MessageCircle className="h-5 w-5 mr-2" />
+                <Button variant="luxury" className="h-20 rounded-2xl shadow-elegant hover:shadow-gold transition-all duration-300 transform hover:scale-105">
+                  <MessageCircle className="h-6 w-6 mr-3" />
                   WhatsApp
                 </Button>
               </div>
