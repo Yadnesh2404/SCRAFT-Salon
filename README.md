@@ -1,73 +1,147 @@
-# Welcome to your Lovable project
+# SCRAFT Salon - Luxury Beauty Website
 
-## Project info
+A premium, responsive website for SCRAFT Salon showcasing luxury hair styling, makeup, spa services, and beauty treatments.
 
-**URL**: https://lovable.dev/projects/14cacb23-f789-4ad7-8faf-5ae206849471
+## ✨ Features
 
-## How can I edit this code?
+- **Luxury Design**: Premium, elegant design with gold accents and sophisticated typography
+- **Responsive Layout**: Fully responsive design that works on all devices
+- **Modern Tech Stack**: Built with React, TypeScript, Tailwind CSS, and Vite
+- **Interactive Elements**: Smooth animations, hover effects, and premium user experience
+- **Service Showcase**: Beautiful presentation of salon services with detailed descriptions
+- **Client Testimonials**: Carousel-style testimonials with client photos and ratings
+- **Contact Forms**: Professional contact forms with salon information and booking options
 
-There are several ways of editing your application.
+## 🚀 Quick Start
 
-**Use Lovable**
+### Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/14cacb23-f789-4ad7-8faf-5ae206849471) and start prompting.
+- Node.js 18+ 
+- npm or yarn
 
-Changes made via Lovable will be committed automatically to this repo.
+### Installation
 
-**Use your preferred IDE**
+1. Clone the repository:
+```bash
+git clone https://github.com/Yadnesh2404/aurum-salon-sparkle.git
+cd aurum-salon-sparkle
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+2. Install dependencies:
+```bash
+npm install
+```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open [http://localhost:8080](http://localhost:8080) in your browser
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🏗️ Build & Deploy
 
-**Use GitHub Codespaces**
+### Local Build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run build
+```
 
-## What technologies are used for this project?
+### Deploy to GitHub Pages
 
-This project is built with:
+#### Option 1: Automatic Deployment (Recommended)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Push your changes to the `main` or `master` branch
+2. GitHub Actions will automatically build and deploy your site
+3. Your site will be available at `https://yadnesh2404.github.io/aurum-salon-sparkle`
 
-## How can I deploy this project?
+#### Option 2: Manual Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/14cacb23-f789-4ad7-8faf-5ae206849471) and click on Share -> Publish.
+1. The configuration is already set up for your repository
+2. Run the deployment:
+```bash
+npm run deploy
+```
 
-## Can I connect a custom domain to my Lovable project?
+### Configuration
 
-Yes, you can!
+✅ **Configuration is already complete for your repository:**
+- **Username**: Yadnesh2404
+- **Repository**: aurum-salon-sparkle
+- **Homepage**: https://yadnesh2404.github.io/aurum-salon-sparkle
+- **Base Path**: /aurum-salon-sparkle/
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🎨 Customization
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Colors & Theme
+
+The design system uses a luxury color palette defined in `src/index.css`:
+
+- **Primary Gold**: Rich gold accents for premium feel
+- **Background**: Pure white foundation
+- **Text**: Dark gray for readability
+- **Accents**: Champagne and ivory tones
+
+### Components
+
+The website is built with modular components:
+
+- `Hero.tsx` - Landing page with main CTA
+- `About.tsx` - Salon information and team details
+- `Services.tsx` - Service offerings with icons
+- `Testimonials.tsx` - Client reviews carousel
+- `Contact.tsx` - Contact forms and salon information
+- `Footer.tsx` - Site footer with links and social media
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+1. **Website not loading on GitHub Pages**
+   - ✅ Configuration is already set up correctly
+   - Check that GitHub Pages is enabled in your repository settings
+   - Verify the deployment branch is set to `gh-pages`
+
+2. **Routing issues**
+   - The 404.html file handles client-side routing
+   - Ensure the GitHub Pages SPA routing script is included
+
+3. **Build errors**
+   - Check Node.js version (18+ required)
+   - Clear node_modules and reinstall: `rm -rf node_modules && npm install`
+
+### GitHub Pages Settings
+
+1. Go to your repository Settings
+2. Navigate to Pages section
+3. Set Source to "Deploy from a branch"
+4. Select `gh-pages` branch
+5. Set folder to `/ (root)`
+6. Save the settings
+
+## 📱 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🆘 Support
+
+For support or questions, please open an issue in the GitHub repository.
+
+---
+
+**SCRAFT Salon** - Redefining the Luxury Salon Experience ✨
