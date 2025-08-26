@@ -41,7 +41,7 @@ const services = [
 
 export const Services = () => {
   return (
-    <section className="py-24 bg-background">
+    <section id="services" className="py-24 bg-gradient-to-b from-muted to-background">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-20">

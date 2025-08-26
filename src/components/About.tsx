@@ -3,7 +3,19 @@ import stylistImage from "@/assets/stylist-portrait.jpg";
 
 export const About = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-muted">
+    <>
+      {/* Golden divider */}
+      <div className="py-8 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-center">
+            <div className="h-px w-32 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+            <div className="mx-6 w-3 h-3 rounded-full bg-primary animate-pulse"></div>
+            <div className="h-px w-32 bg-gradient-to-l from-transparent via-primary to-transparent"></div>
+          </div>
+        </div>
+      </div>
+      
+      <section id="about" className="py-24 bg-gradient-to-b from-background to-muted">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-20">
@@ -67,5 +79,6 @@ export const About = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };

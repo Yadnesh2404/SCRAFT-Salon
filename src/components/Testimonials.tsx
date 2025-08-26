@@ -62,7 +62,10 @@ export const Testimonials = () => {
   const current = testimonials[currentIndex];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-muted to-secondary relative overflow-hidden">
+    <section id="testimonials" className="py-24 bg-gradient-to-b from-background via-muted to-secondary relative overflow-hidden">
+      {/* Textured background overlay */}
+      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,rgba(217,_155,_55,_0.1)_0%,transparent_50%)]"></div>
+      
       {/* Background decorations */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-gradient-to-r from-primary to-yellow-500 blur-3xl"></div>
@@ -70,6 +73,12 @@ export const Testimonials = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
+        {/* Golden divider at top */}
+        <div className="flex items-center justify-center mb-16">
+          <div className="h-px w-24 bg-gradient-to-r from-transparent to-primary"></div>
+          <div className="mx-4 w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+          <div className="h-px w-24 bg-gradient-to-l from-transparent to-primary"></div>
+        </div>
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="font-display text-5xl md:text-6xl font-bold text-foreground mb-6">
@@ -81,7 +90,7 @@ export const Testimonials = () => {
             <div className="h-px w-24 bg-gradient-to-l from-transparent to-primary"></div>
           </div>
           <p className="font-body text-xl text-muted-foreground max-w-2xl mx-auto">
-            Hear from our valued clients who have experienced the Luxe Salon difference
+            Hear from our valued clients who have experienced the SCRAFT Salon difference
           </p>
         </div>
 

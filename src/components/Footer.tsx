@@ -2,8 +2,8 @@ import { MapPin, Phone, Mail, Instagram, Facebook, MessageCircle } from "lucide-
 
 export const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-background to-muted border-t border-border/20">
-      {/* Elegant top border */}
+    <footer className="bg-background relative">
+      {/* Gold divider line */}
       <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
       
       <div className="container mx-auto px-6 py-16">
@@ -13,7 +13,7 @@ export const Footer = () => {
             <div>
               <h3 className="font-display text-4xl font-bold text-foreground mb-3">
                 <span className="bg-gradient-to-r from-primary to-yellow-500 bg-clip-text text-transparent">
-                  Luxe
+                  SCRAFT
                 </span>
                 <span className="text-foreground"> Salon</span>
               </h3>
@@ -34,17 +34,17 @@ export const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center justify-center md:justify-start space-x-3">
                 <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="font-body text-muted-foreground">123 Luxury Avenue, NY 10001</span>
+                <span className="font-body text-muted-foreground">123 Luxury Avenue, Beverly Hills, CA</span>
               </div>
               
               <div className="flex items-center justify-center md:justify-start space-x-3">
                 <Phone className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="font-body text-muted-foreground">+1 (555) 123-4567</span>
+                <span className="font-body text-muted-foreground">+1 (234) 567-8900</span>
               </div>
               
               <div className="flex items-center justify-center md:justify-start space-x-3">
                 <Mail className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="font-body text-muted-foreground">hello@luxesalon.com</span>
+                <span className="font-body text-muted-foreground">info@scraftsalon.com</span>
               </div>
             </div>
           </div>
@@ -55,16 +55,12 @@ export const Footer = () => {
             
             <div className="space-y-2 font-body text-muted-foreground">
               <div className="flex justify-between items-center">
-                <span>Mon - Fri</span>
+                <span>Mon - Sat</span>
                 <span>9:00 AM - 8:00 PM</span>
               </div>
               <div className="flex justify-between items-center">
-                <span>Saturday</span>
-                <span>8:00 AM - 6:00 PM</span>
-              </div>
-              <div className="flex justify-between items-center">
                 <span>Sunday</span>
-                <span>10:00 AM - 5:00 PM</span>
+                <span>10:00 AM - 6:00 PM</span>
               </div>
             </div>
 
@@ -90,7 +86,7 @@ export const Footer = () => {
         <div className="border-t border-border/20 mt-16 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="font-body text-muted-foreground text-sm">
-              © 2024 Luxe Salon. All rights reserved.
+              © 2024 SCRAFT Salon. All rights reserved. | Luxury Beauty Experience
             </p>
             
             <div className="flex space-x-6 text-sm">

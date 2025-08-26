@@ -31,7 +31,7 @@ export const Contact = () => {
   };
 
   return (
-    <section className="py-24 bg-background">
+    <section id="contact" className="py-24 bg-gradient-to-b from-secondary to-background">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-20">
@@ -119,10 +119,17 @@ export const Contact = () => {
                 
                 <Button 
                   type="submit" 
-                  variant="premium" 
-                  className="w-full text-lg py-6 rounded-xl"
+                  variant="hero" 
+                  className="w-full text-lg py-6 rounded-xl mb-4"
                 >
                   Send Message
+                </Button>
+                
+                <Button 
+                  variant="luxury" 
+                  className="w-full text-lg py-6 rounded-xl"
+                >
+                  Book Appointment
                 </Button>
               </form>
             </div>
@@ -142,7 +149,7 @@ export const Contact = () => {
                       <h4 className="font-body font-semibold text-foreground">Address</h4>
                       <p className="font-body text-muted-foreground">
                         123 Luxury Avenue<br />
-                        Fashion District, NY 10001
+                        Beverly Hills, CA 90210
                       </p>
                     </div>
                   </div>
@@ -151,7 +158,7 @@ export const Contact = () => {
                     <Phone className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-body font-semibold text-foreground">Phone</h4>
-                      <p className="font-body text-muted-foreground">+1 (555) 123-4567</p>
+                      <p className="font-body text-muted-foreground">+1 (234) 567-8900</p>
                     </div>
                   </div>
                   
@@ -159,7 +166,7 @@ export const Contact = () => {
                     <Mail className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-body font-semibold text-foreground">Email</h4>
-                      <p className="font-body text-muted-foreground">hello@luxesalon.com</p>
+                      <p className="font-body text-muted-foreground">info@scraftsalon.com</p>
                     </div>
                   </div>
                   
@@ -178,11 +185,12 @@ export const Contact = () => {
               </div>
 
               {/* Map Placeholder */}
-              <div className="bg-gradient-to-br from-muted to-secondary p-8 rounded-2xl shadow-elegant border border-border/50 h-64 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h4 className="font-display text-xl font-semibold text-foreground mb-2">Interactive Map</h4>
-                  <p className="font-body text-muted-foreground">Map integration coming soon</p>
+              <div className="bg-gradient-to-br from-muted to-secondary p-8 rounded-2xl shadow-elegant border border-primary/20 h-64 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(217,_155,_55,_0.15)_0%,transparent_50%)]"></div>
+                <div className="text-center relative z-10">
+                  <MapPin className="h-12 w-12 text-primary mx-auto mb-4 animate-pulse" />
+                  <h4 className="font-display text-xl font-semibold text-foreground mb-2">Find Us Here</h4>
+                  <p className="font-body text-muted-foreground">123 Luxury Avenue, Beverly Hills</p>
                 </div>
               </div>
 
