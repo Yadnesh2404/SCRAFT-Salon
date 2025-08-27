@@ -1,6 +1,13 @@
-import { MapPin, Phone, Mail, Instagram, Facebook, MessageCircle, Clock, Star, MessageSquare } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Star, ArrowRight, Heart, Crown } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export const Footer = () => {
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation(0.1);
+  const { ref: logoRef, isVisible: logoVisible } = useScrollAnimation(0.2);
+  const { ref: linksRef, isVisible: linksVisible } = useScrollAnimation(0.3);
+  const { ref: contactRef, isVisible: contactVisible } = useScrollAnimation(0.4);
+  const { ref: bottomRef, isVisible: bottomVisible } = useScrollAnimation(0.5);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -9,227 +16,189 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-background relative">
-      {/* Enhanced Gold divider line */}
-      <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent shadow-lg"></div>
+    <footer ref={sectionRef} className="bg-gradient-to-br from-muted/50 to-background relative overflow-hidden">
+      {/* Enhanced luxury background */}
+      <div className="absolute inset-0 bg-texture-luxury opacity-5"></div>
       
-      <div className="container mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-4 gap-16 text-center md:text-left">
-          {/* Enhanced Brand Section */}
-          <div className="space-y-8">
-            <div>
+      <div className="container mx-auto px-6 py-20 relative z-10">
+        {/* Enhanced footer content grid */}
+        <div className="grid lg:grid-cols-4 gap-12 mb-16">
+          {/* Enhanced logo section */}
+          <div ref={logoRef} className={`lg:col-span-1 transition-all duration-1000 ${
+            logoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+          }`}>
+            <div className="mb-6">
               <img 
                 src="/scraft-logo-large.svg" 
                 alt="SCRAFT Salon Logo" 
-                className="h-20 w-auto mx-auto md:mx-0 mb-4"
+                className="h-20 w-auto"
               />
-              <p className="font-display text-lg italic text-muted-foreground leading-relaxed">
-                Redefining Luxury in Hair, Beauty & Spa
-              </p>
             </div>
-            
-            <p className="font-body text-muted-foreground leading-relaxed">
-              Where elegance meets expertise. Experience premium beauty services in our luxurious sanctuary designed for discerning clients.
+            <p className="font-body text-muted-foreground mb-6 leading-relaxed">
+              Redefining luxury in hair, beauty & spa. Experience world-class grooming and care in a setting where every detail is crafted to perfection.
             </p>
-
-            {/* Premium badge */}
-            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-yellow-500/10 border border-primary/20">
-              <Star className="h-4 w-4 text-primary" />
-              <span className="font-body text-sm font-medium text-primary">Premium Beauty Experience</span>
+            <div className="flex space-x-4">
+              <div className="w-10 h-10 bg-gradient-to-r from-primary/10 to-yellow-500/10 rounded-full flex items-center justify-center hover:from-primary/20 hover:to-yellow-500/20 transition-all duration-300 group hover:scale-110">
+                <Heart className="h-5 w-5 text-primary group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <div className="w-10 h-10 bg-gradient-to-r from-primary/10 to-yellow-500/10 rounded-full flex items-center justify-center hover:from-primary/20 hover:to-yellow-500/20 transition-all duration-300 group hover:scale-110">
+                <Star className="h-5 w-5 text-primary group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <div className="w-10 h-10 bg-gradient-to-r from-primary/10 to-yellow-500/10 rounded-full flex items-center justify-center hover:from-primary/20 hover:to-yellow-500/20 transition-all duration-300 group hover:scale-110">
+                <Crown className="h-5 w-5 text-primary group-hover:scale-110 transition-transform duration-300" />
+              </div>
             </div>
           </div>
 
-          {/* Enhanced Contact Info */}
-          <div className="space-y-8">
-            <h4 className="font-display text-2xl font-semibold text-foreground mb-6">Get in Touch</h4>
-            
-            <div className="space-y-6">
-              <div className="flex items-center justify-center md:justify-start space-x-4 group">
-                <div className="p-2 rounded-lg bg-gradient-to-r from-primary/10 to-yellow-500/10 group-hover:from-primary/20 group-hover:to-yellow-500/20 transition-all duration-300">
-                  <MapPin className="h-5 w-5 text-primary" />
+          {/* Enhanced quick links */}
+          <div ref={linksRef} className={`transition-all duration-1000 delay-200 ${
+            linksVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+          }`}>
+            <h3 className="font-display text-xl font-bold text-foreground mb-6">Quick Links</h3>
+            <div className="space-y-4">
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5 cursor-pointer group"
+              >
+                <span className="flex items-center">
+                  Book Appointment
+                  <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-0 group-hover:translate-x-1" />
+                </span>
+              </button>
+              <button 
+                onClick={() => scrollToSection('services')}
+                className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5 cursor-pointer group"
+              >
+                <span className="flex items-center">
+                  Our Services
+                  <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-0 group-hover:translate-x-1" />
+                </span>
+              </button>
+              <button 
+                onClick={() => scrollToSection('about')}
+                className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5 cursor-pointer group"
+              >
+                <span className="flex items-center">
+                  About Us
+                  <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-0 group-hover:translate-x-1" />
+                </span>
+              </button>
+              <button 
+                onClick={() => scrollToSection('testimonials')}
+                className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5 cursor-pointer group"
+              >
+                <span className="flex items-center">
+                  Client Reviews
+                  <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-0 group-hover:translate-x-1" />
+                </span>
+              </button>
+            </div>
+          </div>
+
+          {/* Enhanced services */}
+          <div ref={linksRef} className={`transition-all duration-1000 delay-300 ${
+            linksVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+          }`}>
+            <h3 className="font-display text-xl font-bold text-foreground mb-6">Our Services</h3>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3 group">
+                <div className="w-2 h-2 bg-primary rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                <span className="font-body text-muted-foreground hover:text-primary transition-colors duration-300">Hair Styling</span>
+              </div>
+              <div className="flex items-center space-x-3 group">
+                <div className="w-2 h-2 bg-primary rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                <span className="font-body text-muted-foreground hover:text-primary transition-colors duration-300">Beauty & Makeup</span>
+              </div>
+              <div className="flex items-center space-x-3 group">
+                <div className="w-2 h-2 bg-primary rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                <span className="font-body text-muted-foreground hover:text-primary transition-colors duration-300">Spa & Wellness</span>
+              </div>
+              <div className="flex items-center space-x-3 group">
+                <div className="w-2 h-2 bg-primary rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                <span className="font-body text-muted-foreground hover:text-primary transition-colors duration-300">Consultation</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Enhanced contact info */}
+          <div ref={contactRef} className={`transition-all duration-1000 delay-400 ${
+            contactVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+          }`}>
+            <h3 className="font-display text-xl font-bold text-foreground mb-6">Get in Touch</h3>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3 group">
+                <div className="w-8 h-8 bg-gradient-to-r from-primary/10 to-yellow-500/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <MapPin className="h-4 w-4 text-primary" />
                 </div>
-                <div className="text-left">
+                <div>
+                  <p className="font-body text-muted-foreground text-sm">Location</p>
                   <a 
                     href="https://maps.app.goo.gl/EMgaHGKpyBytipEq6" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="font-body text-muted-foreground group-hover:text-primary transition-colors duration-300 hover:underline block"
+                    className="font-body text-foreground hover:text-primary transition-colors duration-300 flex items-center space-x-1"
                   >
-                    <span className="font-semibold text-foreground">Chembur, Mumbai</span>
+                    <span>Chembur, Mumbai</span>
+                    <span className="text-xs text-muted-foreground">(Click to open in Google Maps)</span>
                   </a>
-                  <p className="text-xs text-muted-foreground mt-1">Click to open in Google Maps</p>
                 </div>
               </div>
               
-              <div className="flex items-center justify-center md:justify-start space-x-4 group">
-                <div className="p-2 rounded-lg bg-gradient-to-r from-primary/10 to-yellow-500/10 group-hover:from-primary/20 group-hover:to-yellow-500/20 transition-all duration-300">
-                  <Phone className="h-5 w-5 text-primary" />
+              <div className="flex items-center space-x-3 group">
+                <div className="w-8 h-8 bg-gradient-to-r from-primary/10 to-yellow-500/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Phone className="h-4 w-4 text-primary" />
                 </div>
-                <a 
-                  href="tel:+12345678900"
-                  className="font-body text-muted-foreground group-hover:text-primary transition-colors duration-300 hover:underline"
-                >
-                  +1 (234) 567-8900
-                </a>
+                <div>
+                  <p className="font-body text-muted-foreground text-sm">Phone</p>
+                  <a href="tel:+12345678900" className="font-body text-foreground hover:text-primary transition-colors duration-300">
+                    +1 (234) 567-8900
+                  </a>
+                </div>
               </div>
               
-              <div className="flex items-center justify-center md:justify-start space-x-4 group">
-                <div className="p-2 rounded-lg bg-gradient-to-r from-primary/10 to-yellow-500/10 group-hover:from-primary/20 group-hover:to-yellow-500/20 transition-all duration-300">
-                  <MessageSquare className="h-5 w-5 text-primary" />
+              <div className="flex items-center space-x-3 group">
+                <div className="w-8 h-8 bg-gradient-to-r from-primary/10 to-yellow-500/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Mail className="h-4 w-4 text-primary" />
                 </div>
-                <a 
-                  href="https://wa.me/12345678900"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="font-body text-muted-foreground group-hover:text-primary transition-colors duration-300 hover:underline"
-                >
-                  WhatsApp: +1 (234) 567-8900
-                </a>
+                <div>
+                  <p className="font-body text-muted-foreground text-sm">Email</p>
+                  <a href="mailto:info@scraftsalon.com" className="font-body text-foreground hover:text-primary transition-colors duration-300">
+                    info@scraftsalon.com
+                  </a>
+                </div>
               </div>
               
-              <div className="flex items-center justify-center md:justify-start space-x-4 group">
-                <div className="p-2 rounded-lg bg-gradient-to-r from-primary/10 to-yellow-500/10 group-hover:from-primary/20 group-hover:to-yellow-500/20 transition-all duration-300">
-                  <Mail className="h-5 w-5 text-primary" />
+              <div className="flex items-center space-x-3 group">
+                <div className="w-8 h-8 bg-gradient-to-r from-primary/10 to-yellow-500/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Clock className="h-4 w-4 text-primary" />
                 </div>
-                <a 
-                  href="mailto:info@scraftsalon.com"
-                  className="font-body text-muted-foreground group-hover:text-primary transition-colors duration-300 hover:underline"
-                >
-                  info@scraftsalon.com
-                </a>
-              </div>
-
-              {/* Enhanced Map Link Button */}
-              <div className="pt-2">
-                <a 
-                  href="https://maps.app.goo.gl/EMgaHGKpyBytipEq6" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-yellow-500/10 border border-primary/20 rounded-lg hover:border-primary hover:shadow-gold transition-all duration-300 group hover:scale-105 transform"
-                >
-                  <MapPin className="h-4 w-4 text-primary" />
-                  <span className="font-body text-sm font-medium text-primary group-hover:text-primary">Open in Google Maps</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Enhanced Hours & Social */}
-          <div className="space-y-8">
-            <h4 className="font-display text-2xl font-semibold text-foreground mb-6">Opening Hours</h4>
-            
-            <div className="space-y-4 font-body text-muted-foreground">
-              <div className="flex justify-between items-center p-3 rounded-lg bg-gradient-to-r from-muted/30 to-background/30 border border-border/30">
-                <span className="font-medium">Mon - Fri</span>
-                <span>9:00 AM - 8:00 PM</span>
-              </div>
-              <div className="flex justify-between items-center p-3 rounded-lg bg-gradient-to-r from-muted/30 to-background/30 border border-border/30">
-                <span className="font-medium">Saturday</span>
-                <span>8:00 AM - 6:00 PM</span>
-              </div>
-              <div className="flex justify-between items-center p-3 rounded-lg bg-gradient-to-r from-muted/30 to-background/30 border border-border/30">
-                <span className="font-medium">Sunday</span>
-                <span>10:00 AM - 6:00 PM</span>
-              </div>
-            </div>
-
-            {/* Enhanced Social Media */}
-            <div>
-              <h5 className="font-display text-lg font-semibold text-foreground mb-6">Follow Us</h5>
-              <div className="flex justify-center md:justify-start space-x-4">
-                <a 
-                  href="https://instagram.com/scraftsalon" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-gradient-to-r from-primary/10 to-yellow-500/10 border border-primary/20 hover:border-primary hover:shadow-gold transition-all duration-300 group hover:scale-110"
-                >
-                  <Instagram className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
-                </a>
-                <a 
-                  href="https://facebook.com/scraftsalon" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-gradient-to-r from-primary/10 to-yellow-500/10 border border-primary/20 hover:border-primary hover:shadow-gold transition-all duration-300 group hover:scale-110"
-                >
-                  <Facebook className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
-                </a>
-                <a 
-                  href="https://wa.me/12345678900" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-gradient-to-r from-primary/10 to-yellow-500/10 border border-primary/20 hover:border-primary hover:shadow-gold transition-all duration-300 group hover:scale-110"
-                >
-                  <MessageSquare className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Enhanced Quick Links Section */}
-          <div className="space-y-8">
-            <h4 className="font-display text-2xl font-semibold text-foreground mb-6">Quick Links</h4>
-            
-            <div className="space-y-4">
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5 cursor-pointer"
-              >
-                Book Appointment
-              </button>
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5 cursor-pointer"
-              >
-                Our Services
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5 cursor-pointer"
-              >
-                About Us
-              </button>
-              <button 
-                onClick={() => scrollToSection('testimonials')}
-                className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5 cursor-pointer"
-              >
-                Client Reviews
-              </button>
-            </div>
-
-            {/* Newsletter signup placeholder */}
-            <div className="pt-4">
-              <p className="font-body text-sm text-muted-foreground mb-3">Stay updated with our latest offers</p>
-              <div className="flex space-x-2">
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
-                  className="flex-1 px-3 py-2 text-sm bg-muted/50 border border-border/30 rounded-lg focus:border-primary focus:outline-none transition-colors duration-300"
-                />
-                <button className="px-4 py-2 bg-primary text-white text-sm rounded-lg hover:bg-primary/90 transition-colors duration-300">
-                  <Star className="h-4 w-4" />
-                </button>
+                <div>
+                  <p className="font-body text-muted-foreground text-sm">Hours</p>
+                  <p className="font-body text-foreground">Mon-Sat: 9AM-8PM</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Enhanced Bottom Section with thin gold border */}
-        <div className="border-t border-primary/20 mt-20 pt-12">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+        {/* Enhanced bottom section */}
+        <div ref={bottomRef} className={`pt-8 border-t border-border/30 transition-all duration-1000 delay-500 ${
+          bottomVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+        }`}>
+          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <p className="font-body text-muted-foreground text-sm">
-              © 2024 SCRAFT Salon. All rights reserved. | <span className="text-primary font-medium">Luxury Beauty Experience</span>
+              © 2024 SCRAFT Salon. All rights reserved. Crafted with luxury and precision.
             </p>
-            
-            <div className="flex space-x-8 text-sm">
-              <button className="font-body text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-105 transform">
+            <div className="flex items-center space-x-6">
+              <a href="#" className="font-body text-muted-foreground hover:text-primary transition-colors duration-300 text-sm">
                 Privacy Policy
-              </button>
-              <button className="font-body text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-105 transform">
+              </a>
+              <a href="#" className="font-body text-muted-foreground hover:text-primary transition-colors duration-300 text-sm">
                 Terms of Service
-              </button>
-              <button className="font-body text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-105 transform">
+              </a>
+              <a href="#" className="font-body text-muted-foreground hover:text-primary transition-colors duration-300 text-sm">
                 Cookie Policy
-              </button>
+              </a>
             </div>
           </div>
         </div>
