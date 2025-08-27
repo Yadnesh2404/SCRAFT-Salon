@@ -23,7 +23,7 @@ export const About = () => {
           {/* Enhanced Section Header */}
           <div className="text-center mb-24">
             <h2 className="font-display text-6xl md:text-7xl font-bold text-foreground mb-8">
-              Where <span className="bg-gradient-to-r from-primary to-yellow-500 bg-clip-text text-transparent">Elegance</span> Meets Expertise
+              Our <span className="bg-gradient-to-r from-primary to-yellow-500 bg-clip-text text-transparent">Brand Identity</span>
             </h2>
             <div className="flex items-center justify-center mb-10">
               <div className="h-px w-32 bg-gradient-to-r from-transparent to-primary"></div>
@@ -31,44 +31,28 @@ export const About = () => {
               <div className="h-px w-32 bg-gradient-to-l from-transparent to-primary"></div>
             </div>
             <p className="font-body text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Discover the artistry behind every transformation at SCRAFT Salon
+              The story behind SCRAFT Salon's commitment to luxury and excellence
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-20 items-center">
-            {/* Enhanced Image Side */}
-            <div className="relative animate-fade-in group">
-              <div className="relative overflow-hidden rounded-3xl shadow-premium">
-                <img 
-                  src={stylistImage} 
-                  alt="Professional stylist in luxury salon environment"
-                  className="w-full h-[700px] object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent"></div>
-                
-                {/* Enhanced floating accent */}
-                <div className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-gradient-to-r from-primary to-yellow-500 opacity-30 blur-xl animate-float group-hover:opacity-50 transition-opacity duration-500"></div>
-                
-                {/* Decorative corner elements */}
-                <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-primary/30 rounded-tl-3xl"></div>
-                <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-primary/30 rounded-br-3xl"></div>
-              </div>
-              
-              {/* Floating star accent */}
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-primary/20 to-yellow-500/20 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '1s' }}>
-                <Star className="h-8 w-8 text-primary" />
-              </div>
-            </div>
-
-            {/* Enhanced Content Side */}
+            {/* Enhanced Content Side - Left */}
             <div className="space-y-10 animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <div className="space-y-8">
-                <p className="font-body text-xl text-muted-foreground leading-relaxed">
-                  At <span className="text-primary font-semibold">SCRAFT Salon</span>, we believe that beauty is an art form, and every client deserves to be treated like a masterpiece. Our journey began with a simple vision: to create a sanctuary where luxury meets innovation, and where every service is delivered with uncompromising excellence.
+                <p className="font-display text-2xl text-muted-foreground leading-relaxed italic">
+                  At <span className="text-primary font-semibold">SCRAFT Salon</span>, we believe that beauty is an art form, and every client deserves to be treated like a masterpiece.
                 </p>
                 
-                <p className="font-body text-xl text-muted-foreground leading-relaxed">
-                  Our team of master stylists and beauty experts are passionate about their craft, combining years of experience with the latest techniques and premium products to deliver results that exceed expectations.
+                <p className="font-body text-lg text-muted-foreground leading-relaxed">
+                  Our journey began with a simple yet profound vision: to create a sanctuary where luxury meets innovation, and where every service is delivered with uncompromising excellence. Founded by master stylists with decades of combined experience, SCRAFT Salon has become synonymous with premium beauty experiences.
+                </p>
+                
+                <p className="font-body text-lg text-muted-foreground leading-relaxed">
+                  We believe that true luxury isn't just about the services we offer, but about the entire experience we create. From the moment you step through our doors, you're enveloped in an atmosphere of sophistication and tranquility, where every detail has been carefully curated to ensure your comfort and satisfaction.
+                </p>
+                
+                <p className="font-body text-lg text-muted-foreground leading-relaxed">
+                  Our team of master stylists and beauty experts are passionate about their craft, combining years of experience with the latest techniques and premium products to deliver results that exceed expectations. We understand that every client is unique, and we take pride in creating personalized experiences that celebrate your individual beauty.
                 </p>
               </div>
 
@@ -105,6 +89,30 @@ export const About = () => {
                   <Star className="h-5 w-5 text-primary" />
                   <span className="font-body text-sm font-medium text-primary">Premium Beauty Experience</span>
                 </div>
+              </div>
+            </div>
+
+            {/* Enhanced Image Side - Right */}
+            <div className="relative animate-fade-in group">
+              <div className="relative overflow-hidden rounded-3xl shadow-premium">
+                <img 
+                  src={stylistImage} 
+                  alt="Professional stylist in luxury salon environment"
+                  className="w-full h-[700px] object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent"></div>
+                
+                {/* Enhanced floating accent */}
+                <div className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-gradient-to-r from-primary to-yellow-500 opacity-30 blur-xl animate-float group-hover:opacity-50 transition-opacity duration-500"></div>
+                
+                {/* Decorative corner elements */}
+                <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-primary/30 rounded-tl-3xl"></div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-primary/30 rounded-br-3xl"></div>
+              </div>
+              
+              {/* Floating star accent */}
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-primary/20 to-yellow-500/20 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '1s' }}>
+                <Star className="h-8 w-8 text-primary" />
               </div>
             </div>
           </div>

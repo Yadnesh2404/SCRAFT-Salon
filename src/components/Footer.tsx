@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Instagram, Facebook, MessageCircle, Clock, Star } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram, Facebook, MessageCircle, Clock, Star, MessageSquare } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -18,7 +18,7 @@ export const Footer = () => {
                 <span className="text-foreground"> Salon</span>
               </h3>
               <p className="font-display text-lg italic text-muted-foreground leading-relaxed">
-                Redefining the Luxury Salon Experience
+                Redefining Luxury in Hair, Beauty & Spa
               </p>
             </div>
             
@@ -42,21 +42,52 @@ export const Footer = () => {
                 <div className="p-2 rounded-lg bg-gradient-to-r from-primary/10 to-yellow-500/10 group-hover:from-primary/20 group-hover:to-yellow-500/20 transition-all duration-300">
                   <MapPin className="h-5 w-5 text-primary" />
                 </div>
-                <span className="font-body text-muted-foreground group-hover:text-foreground transition-colors duration-300">123 Luxury Avenue, Beverly Hills, CA</span>
+                <a 
+                  href="https://maps.google.com/?q=123+Luxury+Avenue+Beverly+Hills+CA" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-body text-muted-foreground group-hover:text-primary transition-colors duration-300 hover:underline"
+                >
+                  123 Luxury Avenue, Beverly Hills, CA
+                </a>
               </div>
               
               <div className="flex items-center justify-center md:justify-start space-x-4 group">
                 <div className="p-2 rounded-lg bg-gradient-to-r from-primary/10 to-yellow-500/10 group-hover:from-primary/20 group-hover:to-yellow-500/20 transition-all duration-300">
                   <Phone className="h-5 w-5 text-primary" />
                 </div>
-                <span className="font-body text-muted-foreground group-hover:text-foreground transition-colors duration-300">+1 (234) 567-8900</span>
+                <a 
+                  href="tel:+12345678900"
+                  className="font-body text-muted-foreground group-hover:text-primary transition-colors duration-300 hover:underline"
+                >
+                  +1 (234) 567-8900
+                </a>
+              </div>
+              
+              <div className="flex items-center justify-center md:justify-start space-x-4 group">
+                <div className="p-2 rounded-lg bg-gradient-to-r from-primary/10 to-yellow-500/10 group-hover:from-primary/20 group-hover:to-yellow-500/20 transition-all duration-300">
+                  <MessageSquare className="h-5 w-5 text-primary" />
+                </div>
+                <a 
+                  href="https://wa.me/12345678900"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-body text-muted-foreground group-hover:text-primary transition-colors duration-300 hover:underline"
+                >
+                  WhatsApp: +1 (234) 567-8900
+                </a>
               </div>
               
               <div className="flex items-center justify-center md:justify-start space-x-4 group">
                 <div className="p-2 rounded-lg bg-gradient-to-r from-primary/10 to-yellow-500/10 group-hover:from-primary/20 group-hover:to-yellow-500/20 transition-all duration-300">
                   <Mail className="h-5 w-5 text-primary" />
                 </div>
-                <span className="font-body text-muted-foreground group-hover:text-foreground transition-colors duration-300">info@scraftsalon.com</span>
+                <a 
+                  href="mailto:info@scraftsalon.com"
+                  className="font-body text-muted-foreground group-hover:text-primary transition-colors duration-300 hover:underline"
+                >
+                  info@scraftsalon.com
+                </a>
               </div>
             </div>
           </div>
@@ -84,15 +115,30 @@ export const Footer = () => {
             <div>
               <h5 className="font-display text-lg font-semibold text-foreground mb-6">Follow Us</h5>
               <div className="flex justify-center md:justify-start space-x-4">
-                <button className="p-3 rounded-full bg-gradient-to-r from-primary/10 to-yellow-500/10 border border-primary/20 hover:border-primary hover:shadow-gold transition-all duration-300 group hover:scale-110">
+                <a 
+                  href="https://instagram.com/scraftsalon" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-gradient-to-r from-primary/10 to-yellow-500/10 border border-primary/20 hover:border-primary hover:shadow-gold transition-all duration-300 group hover:scale-110"
+                >
                   <Instagram className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
-                </button>
-                <button className="p-3 rounded-full bg-gradient-to-r from-primary/10 to-yellow-500/10 border border-primary/20 hover:border-primary hover:shadow-gold transition-all duration-300 group hover:scale-110">
+                </a>
+                <a 
+                  href="https://facebook.com/scraftsalon" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-gradient-to-r from-primary/10 to-yellow-500/10 border border-primary/20 hover:border-primary hover:shadow-gold transition-all duration-300 group hover:scale-110"
+                >
                   <Facebook className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
-                </button>
-                <button className="p-3 rounded-full bg-gradient-to-r from-primary/10 to-yellow-500/10 border border-primary/20 hover:border-primary hover:shadow-gold transition-all duration-300 group hover:scale-110">
-                  <MessageCircle className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
-                </button>
+                </a>
+                <a 
+                  href="https://wa.me/12345678900" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-gradient-to-r from-primary/10 to-yellow-500/10 border border-primary/20 hover:border-primary hover:shadow-gold transition-all duration-300 group hover:scale-110"
+                >
+                  <MessageSquare className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+                </a>
               </div>
             </div>
           </div>
@@ -133,8 +179,8 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Enhanced Bottom Section */}
-        <div className="border-t border-border/20 mt-20 pt-12">
+        {/* Enhanced Bottom Section with thin gold border */}
+        <div className="border-t border-primary/20 mt-20 pt-12">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
             <p className="font-body text-muted-foreground text-sm">
               © 2024 SCRAFT Salon. All rights reserved. | <span className="text-primary font-medium">Luxury Beauty Experience</span>

@@ -1,4 +1,4 @@
-import { Scissors, Palette, Sparkles, Crown, Star, Users, Zap } from "lucide-react";
+import { Scissors, Palette, Sparkles, Crown, Star, Users, Zap, ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -45,7 +45,38 @@ const services = [
   }
 ];
 
+const signaturePackages = [
+  {
+    icon: Crown,
+    title: "The Royal Experience",
+    description: "Complete transformation package including hair, makeup, and spa treatment.",
+    price: "From $299",
+    duration: "4-5 hours"
+  },
+  {
+    icon: Star,
+    title: "Bridal Bliss",
+    description: "Comprehensive bridal package with trial session and day-of services.",
+    price: "From $499",
+    duration: "6-8 hours"
+  },
+  {
+    icon: Sparkles,
+    title: "Luxury Revival",
+    description: "Full day spa and beauty experience with champagne service.",
+    price: "From $399",
+    duration: "5-6 hours"
+  }
+];
+
 export const Services = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="services" className="py-32 bg-gradient-to-b from-background via-muted/30 to-background relative overflow-hidden">
       {/* Enhanced background texture */}
@@ -69,7 +100,7 @@ export const Services = () => {
         </div>
 
         {/* Enhanced Services Grid with alternating backgrounds */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-32">
           {services.map((service, index) => (
             <div 
               key={service.title}
@@ -126,12 +157,66 @@ export const Services = () => {
           ))}
         </div>
 
-        {/* Enhanced Call-to-Action */}
-        <div className="text-center mt-20">
-          <div className="inline-flex items-center space-x-4 px-8 py-4 rounded-full bg-gradient-to-r from-primary/10 to-yellow-500/10 border border-primary/20">
-            <Star className="h-6 w-6 text-primary animate-pulse" />
-            <span className="font-body text-lg font-medium text-primary">Book Your Premium Experience Today</span>
+        {/* Signature Packages Subsection */}
+        <div className="mb-24">
+          <div className="text-center mb-16">
+            <h3 className="font-display text-5xl md:text-6xl font-bold text-foreground mb-6">
+              <span className="bg-gradient-to-r from-primary to-yellow-500 bg-clip-text text-transparent">Signature</span> Packages
+            </h3>
+            <p className="font-body text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Experience our most luxurious service combinations, carefully curated for the ultimate pampering experience
+            </p>
           </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {signaturePackages.map((pkg, index) => (
+              <div 
+                key={pkg.title}
+                className="group relative p-8 rounded-3xl bg-gradient-to-br from-background to-muted/30 border border-primary/20 hover:border-primary/40 transition-all duration-500 transform hover:-translate-y-3 hover:shadow-gold animate-fade-in"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                {/* Premium background glow on hover */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/10 to-yellow-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="relative z-10">
+                  {/* Icon */}
+                  <div className="mb-6 p-4 w-fit rounded-2xl bg-gradient-to-br from-primary/20 to-yellow-500/20 group-hover:from-primary/30 group-hover:to-yellow-500/30 transition-all duration-300">
+                    <pkg.icon className="h-8 w-8 text-primary" />
+                  </div>
+                  
+                  {/* Title */}
+                  <h4 className="font-display text-2xl font-semibold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
+                    {pkg.title}
+                  </h4>
+                  
+                  {/* Description */}
+                  <p className="font-body text-muted-foreground mb-6 leading-relaxed">
+                    {pkg.description}
+                  </p>
+                  
+                  {/* Price and Duration */}
+                  <div className="flex justify-between items-center">
+                    <span className="font-display text-xl font-bold text-primary">{pkg.price}</span>
+                    <span className="font-body text-sm text-muted-foreground">{pkg.duration}</span>
+                  </div>
+                </div>
+
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-3xl"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Enhanced Call-to-Action */}
+        <div className="text-center">
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className="inline-flex items-center space-x-4 px-12 py-6 rounded-2xl bg-gradient-to-r from-primary to-yellow-500 text-white font-semibold text-lg shadow-gold hover:shadow-xl transition-all duration-500 transform hover:scale-105 group"
+          >
+            <span>Explore Full Service Menu</span>
+            <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
+          </button>
         </div>
       </div>
     </section>
