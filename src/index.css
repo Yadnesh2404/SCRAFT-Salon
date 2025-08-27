@@ -2,70 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Luxury Salon Design System - Premium colors, gradients, and animations */
+/* Luxury Salon Design System - Premium White & Gold Palette */
 
 @layer base {
   :root {
     /* Base colors - Pure white luxury foundation */
     --background: 0 0% 100%;
-    --foreground: 0 0% 13%;
+    --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 13%;
+    --card-foreground: 222.2 84% 4.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 13%;
+    --popover-foreground: 222.2 84% 4.9%;
 
     /* Gold accent system - Luxury metallic tones */
-    --primary: 43 74% 49%;        /* Rich gold */
-    --primary-foreground: 0 0% 100%;
+    --primary: 43 74% 49%;
+    --primary-foreground: 210 40% 98%;
     
-    --secondary: 45 25% 95%;      /* Champagne cream */
-    --secondary-foreground: 0 0% 13%;
+    --secondary: 45 93% 47%;
+    --secondary-foreground: 222.2 84% 4.9%;
 
-    --muted: 45 25% 97%;          /* Soft ivory */
-    --muted-foreground: 0 0% 45%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 43 74% 49%;         /* Gold accent */
-    --accent-foreground: 0 0% 100%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 84% 4.9%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 45 25% 92%;         /* Subtle champagne border */
-    --input: 45 25% 95%;
-    --ring: 43 74% 49%;           /* Gold focus ring */
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 43 74% 49%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Premium gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(43 74% 49%) 0%, hsl(38 69% 59%) 100%);
+    /* Premium gradients - Enhanced luxury */
+    --gradient-gold: linear-gradient(135deg, hsl(43 74% 49%) 0%, hsl(45 93% 47%) 100%);
     --gradient-champagne: linear-gradient(135deg, hsl(45 25% 97%) 0%, hsl(43 20% 94%) 100%);
     --gradient-shimmer: linear-gradient(90deg, transparent 0%, hsl(43 74% 49% / 0.3) 50%, transparent 100%);
+    --gradient-luxury: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(45 25% 98%) 100%);
+    --gradient-ivory: linear-gradient(135deg, hsl(45 25% 97%) 0%, hsl(0 0% 100%) 100%);
 
-    /* Premium shadows */
+    /* Premium shadows - Enhanced luxury */
     --shadow-gold: 0 10px 40px hsl(43 74% 49% / 0.15);
-    --shadow-elegant: 0 4px 20px hsl(0 0% 0% / 0.08);
-    --shadow-premium: 0 8px 30px hsl(0 0% 0% / 0.12);
 
     /* Animations */
     --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-shimmer: all 0.6s ease-in-out;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -79,11 +72,11 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 43 74% 49%;
+    --primary-foreground: 222.2 84% 4.9%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 45 93% 47;
+    --secondary-foreground: 222.2 84% 4.9%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
@@ -96,7 +89,7 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 43 74% 49%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -115,146 +108,44 @@
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html, body {
     scroll-behavior: smooth;
-  }
-
-  /* Enhanced smooth scrolling for all sections */
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Alternating section backgrounds */
-  section:nth-child(even) {
-    background: linear-gradient(135deg, hsl(45 25% 97%) 0%, hsl(43 20% 94%) 100%);
-  }
-
-  section:nth-child(odd) {
-    background: hsl(0 0% 100%);
-  }
-
-  /* Thin gold divider lines between sections */
-  section:not(:last-child)::after {
-    content: '';
-    display: block;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, hsl(43 74% 49% / 0.3) 50%, transparent 100%);
-    margin: 0 auto;
-    width: 80%;
-    max-width: 800px;
   }
 }
 
-@layer components {
-  /* Enhanced Button Variants */
-  .btn-hero {
-    @apply bg-gradient-to-r from-primary to-yellow-500 text-white font-semibold px-8 py-4 rounded-2xl shadow-gold hover:shadow-xl transition-all duration-500 transform hover:scale-105 hover:from-primary/90 hover:to-yellow-500/90;
-  }
-
-  .btn-luxury {
-    @apply bg-transparent text-primary border-2 border-primary font-semibold px-8 py-4 rounded-2xl hover:bg-primary hover:text-white transition-all duration-500 transform hover:scale-105 shadow-elegant hover:shadow-gold;
-  }
-
-  /* Premium Shadows */
-  .shadow-gold {
-    box-shadow: 0 10px 40px hsl(43 74% 49% / 0.15);
-  }
-
-  .shadow-elegant {
-    box-shadow: 0 4px 20px hsl(0 0% 0% / 0.08);
-  }
-
-  .shadow-premium {
-    box-shadow: 0 8px 30px hsl(0 0% 0% / 0.12);
-  }
-
-  /* Enhanced Animations with Intersection Observer support */
-  .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.8s ease-out forwards;
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-shimmer {
-    background-size: 200% 100%;
-    animation: shimmer 3s ease-in-out infinite;
-  }
-
-  /* Letter Spacing Utilities */
-  .letter-spacing-1 {
-    letter-spacing: 0.1em;
-  }
-
-  .letter-spacing-2 {
-    letter-spacing: 0.2em;
-  }
-
-  .letter-spacing-3 {
-    letter-spacing: 0.3em;
-  }
-
-  /* Enhanced section backgrounds with subtle textures */
-  .bg-section-white {
-    background: hsl(0 0% 100%);
-  }
-
-  .bg-section-ivory {
-    background: linear-gradient(135deg, hsl(45 25% 97%) 0%, hsl(43 20% 94%) 100%);
-  }
-
-  .bg-section-champagne {
-    background: linear-gradient(135deg, hsl(45 25% 95%) 0%, hsl(43 20% 92%) 100%);
-  }
-
-  /* Thin gold divider lines */
-  .divider-gold {
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, hsl(43 74% 49% / 0.3) 50%, transparent 100%);
-    margin: 0 auto;
-    width: 80%;
-    max-width: 800px;
-  }
-
-  /* Subtle gold/cream gradient textures */
-  .texture-luxury {
-    background-image: 
-      radial-gradient(circle at 25% 25%, rgba(217, 155, 55, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, rgba(217, 155, 55, 0.05) 0%, transparent 50%);
-  }
-
-  .texture-elegant {
-    background-image: 
-      linear-gradient(45deg, rgba(217, 155, 55, 0.03) 25%, transparent 25%),
-      linear-gradient(-45deg, rgba(217, 155, 55, 0.03) 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, rgba(217, 155, 55, 0.03) 75%),
-      linear-gradient(-45deg, transparent 75%, rgba(217, 155, 55, 0.03) 75%);
-    background-size: 20px 20px;
-    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-  }
+/* Enhanced luxury alternating section backgrounds */
+section:nth-child(even) {
+  background: linear-gradient(135deg, hsl(45 25% 97%) 0%, hsl(0 0% 100%) 100%);
+  position: relative;
 }
 
-@layer utilities {
-  /* Animation Keyframes */
-  @keyframes fadeIn {
+section:nth-child(odd) {
+  background: hsl(0 0% 100%);
+  position: relative;
+}
+
+/* Enhanced luxury gold divider lines between sections */
+section:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, hsl(217 155 55), hsl(45 93% 47), transparent);
+  opacity: 0.8;
+  border-radius: 1px;
+}
+
+/* Enhanced luxury animations */
+@keyframes slideUp {
     from {
       opacity: 0;
       transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(50px);
     }
     to {
       opacity: 1;
@@ -273,83 +164,265 @@
 
   @keyframes shimmer {
     0% {
-      background-position: -200% 0;
+    background-position: -200% center;
     }
     100% {
-      background-position: 200% 0;
-    }
+    background-position: 200% center;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes goldGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(217 155 55 / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(217 155 55 / 0.6);
+  }
+}
+
+@keyframes luxuryPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+/* Enhanced luxury utility classes */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-animate.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, hsl(43 74% 49%), hsl(45 93% 47%), hsl(43 74% 49%));
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-gold-glow {
+  animation: goldGlow 3s ease-in-out infinite;
+}
+
+.animate-luxury-pulse {
+  animation: luxuryPulse 4s ease-in-out infinite;
+}
+
+/* Enhanced luxury mobile centering and responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Ensure proper centering on mobile */
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Better mobile grid layouts */
+  .grid {
+    gap: 1rem;
+  }
+  
+  /* Improved mobile spacing */
+  .py-24 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  .py-32 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  
+  /* Better mobile margins */
+  .mb-20 {
+    margin-bottom: 3rem;
+  }
+  
+  .mb-24 {
+    margin-bottom: 4rem;
+  }
+  
+  /* Enhanced mobile text sizes */
+  .text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  
+  .text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+  
+  .text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+  
+  .text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+  
+  /* Better mobile button sizing */
+  .px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  
+  /* Improved mobile card layouts */
+  .p-6 {
+    padding: 1.25rem;
+  }
+  
+  .rounded-2xl {
+    border-radius: 1rem;
+  }
+  
+  /* Better mobile spacing between elements */
+  .space-y-6 > * + * {
+    margin-top: 1.25rem;
+  }
+  
+  .space-y-8 > * + * {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Enhanced luxury line clamping */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Enhanced luxury shadows */
+.shadow-gold {
+  box-shadow: 0 10px 25px -3px hsl(217 155 55 / 0.3), 0 4px 6px -2px hsl(217 155 55 / 0.1);
+}
+
+/* Shadow classes are now defined in Tailwind config */
+
+/* Enhanced luxury backdrop blur */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+}
+
+.backdrop-blur-lg {
+  backdrop-filter: blur(16px);
+}
+
+/* Enhanced luxury gradients */
+.bg-gradient-luxury {
+  background: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(45 25% 98%) 100%);
+}
+
+.bg-gradient-champagne {
+  background: linear-gradient(135deg, hsl(45 25% 97%) 0%, hsl(0 0% 100%) 100%);
+}
+
+.bg-gradient-ivory {
+  background: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(45 25% 97%) 100%);
+}
+
+.bg-gradient-gold {
+  background: linear-gradient(135deg, hsl(217 155 55) 0%, hsl(45 93% 47) 100%);
+}
+
+.bg-gradient-shimmer {
+  background: linear-gradient(90deg, transparent 0%, hsl(217 155 55 / 0.1) 50%, transparent 100%);
+}
+
+/* Luxury texture patterns */
+.bg-texture-luxury {
+    background-image: 
+    radial-gradient(circle at 25% 25%, hsl(217 155 55 / 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, hsl(45 93% 47 / 0.03) 0%, transparent 50%);
   }
 
-  /* Enhanced Background Patterns */
-  .bg-pattern-luxury {
+.bg-texture-elegant {
     background-image: 
-      radial-gradient(circle at 25% 25%, rgba(217, 155, 55, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, rgba(217, 155, 55, 0.1) 0%, transparent 50%);
-  }
-
-  .bg-pattern-elegant {
-    background-image: 
-      linear-gradient(45deg, rgba(217, 155, 55, 0.05) 25%, transparent 25%),
-      linear-gradient(-45deg, rgba(217, 155, 55, 0.05) 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, rgba(217, 155, 55, 0.05) 75%),
-      linear-gradient(-45deg, transparent 75%, rgba(217, 155, 55, 0.05) 75%);
+    linear-gradient(45deg, hsl(217 155 55 / 0.02) 25%, transparent 25%),
+    linear-gradient(-45deg, hsl(217 155 55 / 0.02) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, hsl(217 155 55 / 0.02) 75%),
+    linear-gradient(-45deg, transparent 75%, hsl(217 155 55 / 0.02) 75%);
     background-size: 20px 20px;
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   }
 
-  /* Premium Gradients */
-  .bg-gradient-luxury {
-    background: linear-gradient(135deg, hsl(43 74% 49% / 0.1) 0%, hsl(38 69% 59% / 0.1) 100%);
-  }
+/* Luxury hover effects */
+.hover-luxury {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  .bg-gradient-champagne {
-    background: linear-gradient(135deg, hsl(45 25% 97%) 0%, hsl(43 20% 94%) 100%);
-  }
+.hover-luxury:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px hsl(217 155 55 / 0.15);
+}
 
-  /* Enhanced Transitions */
-  .transition-luxury {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+.hover-gold {
+  transition: all 0.3s ease;
+}
 
-  .transition-shimmer {
-    transition: all 0.6s ease-in-out;
-  }
+.hover-gold:hover {
+  color: hsl(217 155 55);
+  transform: scale(1.05);
+}
 
-  /* Premium Hover Effects */
-  .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+/* Luxury button styles */
+.btn-luxury {
+  @apply bg-gradient-to-r from-primary to-secondary text-white font-semibold px-8 py-4 rounded-2xl shadow-luxury hover:shadow-gold transition-all duration-500 transform hover:scale-105;
+}
 
-  .hover-lift:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  }
+.btn-outline-luxury {
+  @apply bg-transparent text-primary border-2 border-primary font-semibold px-8 py-4 rounded-2xl hover:bg-primary hover:text-white transition-all duration-500 transform hover:scale-105 shadow-elegant hover:shadow-gold;
+}
 
-  .hover-glow {
-    transition: box-shadow 0.3s ease;
-  }
+/* Luxury card styles */
+.card-luxury {
+  @apply bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2;
+}
 
-  .hover-glow:hover {
-    box-shadow: 0 0 30px rgba(217, 155, 55, 0.3);
-  }
-
-  /* Scroll-triggered animations */
-  .scroll-animate {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-  }
-
-  .scroll-animate.animate {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Line clamp utility for text truncation */
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
+.card-premium {
+  @apply bg-gradient-to-br from-white to-muted/30 border border-primary/20 rounded-3xl shadow-premium hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-3;
 }

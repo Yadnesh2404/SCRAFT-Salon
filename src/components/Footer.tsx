@@ -1,6 +1,13 @@
 import { MapPin, Phone, Mail, Instagram, Facebook, MessageCircle, Clock, Star, MessageSquare } from "lucide-react";
 
 export const Footer = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="bg-background relative">
       {/* Enhanced Gold divider line */}
@@ -11,12 +18,11 @@ export const Footer = () => {
           {/* Enhanced Brand Section */}
           <div className="space-y-8">
             <div>
-              <h3 className="font-display text-4xl font-bold text-foreground mb-4">
-                <span className="bg-gradient-to-r from-primary to-yellow-500 bg-clip-text text-transparent">
-                  SCRAFT
-                </span>
-                <span className="text-foreground"> Salon</span>
-              </h3>
+              <img 
+                src="/scraft-logo-large.svg" 
+                alt="SCRAFT Salon Logo" 
+                className="h-20 w-auto mx-auto md:mx-0 mb-4"
+              />
               <p className="font-display text-lg italic text-muted-foreground leading-relaxed">
                 Redefining Luxury in Hair, Beauty & Spa
               </p>
@@ -35,21 +41,24 @@ export const Footer = () => {
 
           {/* Enhanced Contact Info */}
           <div className="space-y-8">
-            <h4 className="font-display text-2xl font-semibold text-foreground mb-6">Contact Info</h4>
+            <h4 className="font-display text-2xl font-semibold text-foreground mb-6">Get in Touch</h4>
             
             <div className="space-y-6">
               <div className="flex items-center justify-center md:justify-start space-x-4 group">
                 <div className="p-2 rounded-lg bg-gradient-to-r from-primary/10 to-yellow-500/10 group-hover:from-primary/20 group-hover:to-yellow-500/20 transition-all duration-300">
                   <MapPin className="h-5 w-5 text-primary" />
                 </div>
-                <a 
-                  href="https://maps.google.com/?q=123+Luxury+Avenue+Beverly+Hills+CA" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="font-body text-muted-foreground group-hover:text-primary transition-colors duration-300 hover:underline"
-                >
-                  123 Luxury Avenue, Beverly Hills, CA
-                </a>
+                <div className="text-left">
+                  <a 
+                    href="https://maps.app.goo.gl/EMgaHGKpyBytipEq6" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="font-body text-muted-foreground group-hover:text-primary transition-colors duration-300 hover:underline block"
+                  >
+                    <span className="font-semibold text-foreground">Chembur, Mumbai</span>
+                  </a>
+                  <p className="text-xs text-muted-foreground mt-1">Click to open in Google Maps</p>
+                </div>
               </div>
               
               <div className="flex items-center justify-center md:justify-start space-x-4 group">
@@ -87,6 +96,19 @@ export const Footer = () => {
                   className="font-body text-muted-foreground group-hover:text-primary transition-colors duration-300 hover:underline"
                 >
                   info@scraftsalon.com
+                </a>
+              </div>
+
+              {/* Enhanced Map Link Button */}
+              <div className="pt-2">
+                <a 
+                  href="https://maps.app.goo.gl/EMgaHGKpyBytipEq6" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-yellow-500/10 border border-primary/20 rounded-lg hover:border-primary hover:shadow-gold transition-all duration-300 group hover:scale-105 transform"
+                >
+                  <MapPin className="h-4 w-4 text-primary" />
+                  <span className="font-body text-sm font-medium text-primary group-hover:text-primary">Open in Google Maps</span>
                 </a>
               </div>
             </div>
@@ -143,21 +165,33 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* New Quick Links Section */}
+          {/* Enhanced Quick Links Section */}
           <div className="space-y-8">
             <h4 className="font-display text-2xl font-semibold text-foreground mb-6">Quick Links</h4>
             
             <div className="space-y-4">
-              <button className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5">
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5 cursor-pointer"
+              >
                 Book Appointment
               </button>
-              <button className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5">
+              <button 
+                onClick={() => scrollToSection('services')}
+                className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5 cursor-pointer"
+              >
                 Our Services
               </button>
-              <button className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5">
+              <button 
+                onClick={() => scrollToSection('about')}
+                className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5 cursor-pointer"
+              >
                 About Us
               </button>
-              <button className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5">
+              <button 
+                onClick={() => scrollToSection('testimonials')}
+                className="block w-full text-left font-body text-muted-foreground hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/5 hover:to-yellow-500/5 cursor-pointer"
+              >
                 Client Reviews
               </button>
             </div>

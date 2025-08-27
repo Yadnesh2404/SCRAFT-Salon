@@ -1,97 +1,118 @@
-import { Button } from "@/components/ui/button";
-import { Calendar, Sparkles } from "lucide-react";
+import { Crown, Sparkles } from "lucide-react";
 import interior1Image from "@/assets/images/interior1.jpg";
 
-export const Hero = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
+export const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Full-width background image with dark translucent gradient overlay */}
-      <div className="absolute inset-0">
-        <img 
-          src={interior1Image} 
-          alt="Luxury salon interior with elegant styling chairs and golden lighting"
-          className="w-full h-full object-cover scale-105"
-        />
-        {/* Dark translucent gradient overlay for premium luxury feel */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
+      {/* Enhanced luxury background image */}
+      <img 
+        src={interior1Image} 
+        alt="Luxury salon interior with elegant styling chairs"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      
+      {/* Enhanced luxury gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/80"></div>
+      
+      {/* Luxury texture overlay */}
+      <div className="absolute inset-0 bg-texture-luxury opacity-20"></div>
+      
+      {/* Enhanced luxury pattern overlay */}
+      <div className="absolute inset-0 bg-texture-elegant opacity-10"></div>
+      
+      {/* Enhanced decorative elements with reduced opacity */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Top decorative element */}
+        <div className="absolute top-20 left-1/4 w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center animate-float">
+          <Crown className="h-8 w-8 text-primary" />
+        </div>
+        
+        {/* Bottom decorative element */}
+        <div className="absolute bottom-20 right-1/4 w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '1s' }}>
+          <Sparkles className="h-8 w-8 text-primary" />
+        </div>
+      
+        {/* Additional floating elements */}
+        <div className="absolute top-1/3 right-1/3 w-12 h-12 bg-gradient-to-br from-primary/15 to-secondary/15 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '2s' }}>
+          <Crown className="h-6 w-6 text-primary" />
+        </div>
+
+        <div className="absolute bottom-1/3 left-1/3 w-10 h-10 bg-gradient-to-br from-primary/15 to-secondary/15 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '3s' }}>
+          <Sparkles className="h-5 w-5 text-primary" />
+        </div>
       </div>
       
-      {/* Enhanced decorative elements with premium feel */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-40 h-40 rounded-full bg-gradient-to-r from-primary/40 to-yellow-500/40 blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-gradient-to-r from-yellow-500/40 to-primary/40 blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/4 w-32 h-32 rounded-full bg-gradient-to-r from-primary/30 to-transparent blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
-      </div>
+      {/* Enhanced luxury content */}
+      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+        {/* Enhanced brand name */}
+        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
+          <span className="text-yellow-400 animate-pulse drop-shadow-2xl font-extrabold">
+            SCRAFT
+          </span>
+          <br />
+          <span className="text-white drop-shadow-lg">Salon</span>
+        </h1>
+        
+        {/* Enhanced luxury divider */}
+        <div className="flex items-center justify-center mb-6 md:mb-8">
+          <div className="h-px w-32 md:w-48 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+          <div className="mx-6 md:mx-8 w-6 h-6 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse"></div>
+          <div className="h-px w-32 md:w-48 bg-gradient-to-l from-transparent via-primary to-transparent"></div>
+        </div>
+          
+        {/* Enhanced tagline */}
+        <p className="font-display text-xl md:text-2xl lg:text-3xl text-white/90 mb-4 md:mb-6 leading-relaxed">
+          Redefining Luxury in Hair, Beauty & Spa
+        </p>
+        
+        {/* Enhanced subline */}
+        <p className="font-body text-base md:text-lg lg:text-xl text-white/80 mb-6 md:mb-8 max-w-4xl mx-auto leading-relaxed">
+          Experience world-class grooming and care in a luxury setting where every detail is crafted to perfection
+        </p>
+        
+        {/* Enhanced elegant divider */}
+        <div className="flex items-center justify-center mb-8 md:mb-10">
+          <div className="h-px w-24 md:w-32 bg-gradient-to-r from-transparent to-primary/60"></div>
+          <div className="mx-4 md:mx-6 w-3 h-3 rounded-full bg-primary/60"></div>
+          <div className="h-px w-24 md:w-32 bg-gradient-to-l from-transparent to-primary/60"></div>
+        </div>
+          
+        {/* Enhanced description */}
+        <p className="font-body text-sm md:text-base text-white/70 mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed">
+          Step into a world of elegance where premium services meet exceptional artistry. Our expert stylists and beauty professionals are dedicated to creating your perfect look in an atmosphere of refined luxury.
+        </p>
+        
+        {/* Enhanced luxury CTAs */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
+          {/* Primary CTA - Enhanced luxury button */}
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className="btn-luxury group"
+          >
+            <span className="relative z-10">Book an Appointment</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </button>
+          
+          {/* Secondary CTA - Enhanced luxury outline button */}
+          <button 
+            onClick={() => scrollToSection('services')}
+            className="btn-outline-luxury group"
+          >
+            <span className="relative z-10">View Services</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </button>
+        </div>
 
-      {/* Subtle texture overlay */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(217,_155,_55,_0.3)_0%,transparent_50%)]"></div>
-
-      <div className="container mx-auto px-6 text-center relative z-10">
-        <div className="animate-fade-in">
-          {/* Brand Name "SCRAFT Salon" in large bold text */}
-          <div className="mb-8">
-            <h1 className="font-display text-7xl md:text-9xl font-bold text-white mb-4 tracking-wider drop-shadow-2xl">
-              <span className="bg-gradient-to-r from-primary via-yellow-500 to-primary bg-clip-text text-transparent animate-shimmer">
-                SCRAFT
-              </span>
-              <span className="text-white"> Salon</span>
-            </h1>
-          </div>
-          
-          {/* Tagline */}
-          <div className="mb-8">
-            <p className="font-display text-2xl md:text-4xl text-primary font-semibold tracking-widest uppercase letter-spacing-2">
-              Redefining Luxury in Hair, Beauty & Spa
-            </p>
-          </div>
-          
-          {/* Subline */}
-          <div className="mb-12">
-            <p className="font-display text-xl md:text-3xl text-white/95 italic max-w-4xl mx-auto leading-relaxed drop-shadow-lg">
-              Experience world-class grooming and care in a luxury setting.
-            </p>
-          </div>
-          
-          {/* Enhanced elegant divider with animation */}
-          <div className="flex items-center justify-center mb-16">
-            <div className="h-px w-32 bg-gradient-to-r from-transparent to-primary animate-pulse"></div>
-            <div className="mx-6 w-3 h-3 rounded-full bg-primary animate-ping"></div>
-            <div className="h-px w-32 bg-gradient-to-l from-transparent to-primary animate-pulse"></div>
-          </div>
-          
-          {/* CTAs: Gold/black "Book Appointment" and outlined "View Services" */}
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-gradient-to-r from-primary to-yellow-500 text-white font-semibold text-lg px-16 py-8 rounded-2xl group shadow-gold hover:shadow-xl transition-all duration-500 transform hover:scale-105 hover:from-primary/90 hover:to-yellow-500/90"
-            >
-              <Calendar className="mr-3 h-6 w-6 group-hover:animate-pulse" />
-              Book Appointment
-            </Button>
-            
-            <Button 
-              onClick={() => scrollToSection('services')}
-              variant="outline"
-              className="bg-transparent text-white border-2 border-white font-semibold text-lg px-16 py-8 rounded-2xl hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105 shadow-elegant hover:shadow-xl"
-            >
-              <Sparkles className="mr-3 h-6 w-6" />
-              View Services
-            </Button>
-          </div>
-
-          {/* Additional premium touch - floating sparkles */}
-          <div className="absolute top-1/4 left-1/4 animate-float opacity-60">
-            <Sparkles className="h-6 w-6 text-primary" />
-          </div>
-          <div className="absolute bottom-1/4 right-1/4 animate-float opacity-60" style={{ animationDelay: '1.5s' }}>
+        {/* Enhanced bottom decorative element */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '1.5s' }}>
             <Sparkles className="h-6 w-6 text-primary" />
           </div>
         </div>

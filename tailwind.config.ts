@@ -169,9 +169,10 @@ export default {
 				'gradient-ivory': 'linear-gradient(135deg, hsl(45 25% 98%) 0%, hsl(43 20% 96%) 100%)',
 			},
 			boxShadow: {
-				'gold': '0 10px 40px hsl(43 74% 49% / 0.15)',
+				'gold': '0 10px 40px hsl(217 155 55 / 0.15)',
 				'elegant': '0 4px 20px hsl(0 0% 0% / 0.08)',
 				'premium': '0 8px 30px hsl(0 0% 0% / 0.12)',
+				'luxury': '0 20px 60px hsl(217 155 55 / 0.15)',
 				'gold-glow': '0 0 30px hsl(43 74% 49% / 0.3)',
 			}
 		}

@@ -1,0 +1,27 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle for favicon -->
+  <circle cx="64" cy="64" r="60" fill="white" stroke="#000" stroke-width="4"/>
+  
+  <!-- SCRAFT text with stylized star for A -->
+  <g font-family="serif" font-weight="bold" font-size="28" fill="black">
+    <!-- S -->
+    <text x="16" y="56">S</text>
+    <!-- C -->
+    <text x="36" y="56">C</text>
+    <!-- R -->
+    <text x="56" y="56">R</text>
+    <!-- Star replacing A -->
+    <g transform="translate(76, 40)">
+      <path d="M8 0 L10 6 L16 6 L12 10 L14 16 L8 12 L2 16 L4 10 L0 6 L6 6 Z" fill="black"/>
+    </g>
+    <!-- F -->
+    <text x="96" y="56">F</text>
+    <!-- T -->
+    <text x="112" y="56">T</text>
+  </g>
+  
+  <!-- SALON text below -->
+  <g font-family="sans-serif" font-weight="normal" font-size="16" fill="black">
+    <text x="64" y="84" text-anchor="middle">SALON</text>
+  </g>
+</svg>
