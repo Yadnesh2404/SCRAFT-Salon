@@ -1,10 +1,9 @@
 // Deployment Configuration for SCRAFT Salon
-// Updated with actual GitHub details
+// Updated for Netlify deployment
 
 const config = {
-  // GitHub Pages Configuration
-  githubUsername: 'Yadnesh2404',
-  repositoryName: 'aurum-salon-sparkle',
+  // Netlify Configuration
+  deploymentPlatform: 'Netlify',
   
   // Website Information
   siteTitle: 'SCRAFT Salon',
@@ -24,9 +23,5 @@ const config = {
     whatsapp: 'https://wa.me/1234567890'
   }
 };
-
-// Generate URLs
-config.homepage = `https://${config.githubUsername}.github.io/${config.repositoryName}`;
-config.basePath = `/${config.repositoryName}/`;
 
 module.exports = config;

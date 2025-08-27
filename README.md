@@ -47,29 +47,27 @@ npm run dev
 npm run build
 ```
 
-### Deploy to GitHub Pages
+### Deploy to Netlify
 
 #### Option 1: Automatic Deployment (Recommended)
 
-1. Push your changes to the `main` or `master` branch
-2. GitHub Actions will automatically build and deploy your site
-3. Your site will be available at `https://yadnesh2404.github.io/aurum-salon-sparkle`
+1. Connect your GitHub repository to Netlify
+2. Netlify will automatically build and deploy your site
+3. Your site will be available at your Netlify URL
 
 #### Option 2: Manual Deployment
 
-1. The configuration is already set up for your repository
-2. Run the deployment:
-```bash
-npm run deploy
-```
+1. Build the project: `npm run build`
+2. Drag and drop the `dist` folder to Netlify
+3. Your site will be deployed instantly
 
 ### Configuration
 
-✅ **Configuration is already complete for your repository:**
-- **Username**: Yadnesh2404
-- **Repository**: aurum-salon-sparkle
-- **Homepage**: https://yadnesh2404.github.io/aurum-salon-sparkle
-- **Base Path**: /aurum-salon-sparkle/
+✅ **Configuration is already complete for Netlify deployment:**
+- **Build Command**: `npm run build`
+- **Publish Directory**: `dist`
+- **Routing**: Handled by `netlify.toml`
+- **Environment**: Node.js 18+
 
 ## 🎨 Customization
 
@@ -97,27 +95,26 @@ The website is built with modular components:
 
 ### Common Issues
 
-1. **Website not loading on GitHub Pages**
-   - ✅ Configuration is already set up correctly
-   - Check that GitHub Pages is enabled in your repository settings
-   - Verify the deployment branch is set to `gh-pages`
+1. **Website not loading on Netlify**
+   - Check that the build command is `npm run build`
+   - Verify the publish directory is set to `dist`
+   - Check build logs for any errors
 
 2. **Routing issues**
-   - The 404.html file handles client-side routing
-   - Ensure the GitHub Pages SPA routing script is included
+   - The `netlify.toml` file handles client-side routing
+   - Ensure all routes redirect to `index.html`
 
 3. **Build errors**
    - Check Node.js version (18+ required)
    - Clear node_modules and reinstall: `rm -rf node_modules && npm install`
 
-### GitHub Pages Settings
+### Netlify Settings
 
-1. Go to your repository Settings
-2. Navigate to Pages section
-3. Set Source to "Deploy from a branch"
-4. Select `gh-pages` branch
-5. Set folder to `/ (root)`
-6. Save the settings
+1. Go to your Netlify dashboard
+2. Navigate to Site settings → Build & deploy
+3. Set Build command to: `npm run build`
+4. Set Publish directory to: `dist`
+5. Save the settings
 
 ## 📱 Browser Support
 
