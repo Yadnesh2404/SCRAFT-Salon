@@ -18,6 +18,16 @@ export default defineConfig(({ mode }) => ({
         manualChunks: undefined,
       },
     },
+    // Ensure CSS is not minified in a way that breaks animations
+    cssMinify: 'lightcss',
+    // Preserve CSS animations and keyframes
+    cssCodeSplit: true,
+  },
+  css: {
+    // Ensure PostCSS processes CSS correctly
+    postcss: './postcss.config.js',
+    // Preserve CSS animations
+    devSourcemap: true,
   },
   plugins: [
     react(),
@@ -28,5 +38,13 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  // Ensure build optimizations don't break animations
+  optimizeDeps: {
+    include: ['react', 'react-dom'],
+  },
+  // Preserve CSS animations during build
+  define: {
+    __DEV__: mode === 'development',
   },
 }));

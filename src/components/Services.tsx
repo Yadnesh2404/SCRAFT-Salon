@@ -1,4 +1,4 @@
-import { Star, Sparkles, Crown, Heart, Users, Award, Clock, Zap, ArrowRight } from "lucide-react";
+import { Star, Sparkles, Crown, Heart, Users, Award, Clock, Zap, ArrowRight, Scissors, Palette, Calendar } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export const Services = () => {
@@ -39,82 +39,188 @@ export const Services = () => {
   ];
 
   return (
-    <section id="services" ref={sectionRef} className="py-24 relative overflow-hidden">
+    <section id="services" ref={sectionRef} className={`py-24 relative overflow-hidden transition-opacity duration-700 ${sectionVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Enhanced luxury background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-background"></div>
       
       {/* Luxury texture overlay */}
-      <div className="absolute inset-0 bg-texture-luxury opacity-5"></div>
+      <div className="absolute inset-0 bg-texture-elegant opacity-5"></div>
       
       <div className="container mx-auto px-6 relative z-10">
-        {/* Enhanced section header */}
-        <div ref={titleRef} className={`text-center mb-20 transition-all duration-1000 ${
-          titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-        }`}>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
+        {/* Enhanced luxury section title */}
+        <div ref={titleRef} className={`text-center mb-16 transition-opacity duration-700 delay-200 ${titleVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
             Our Premium
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"> Services</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary">
+              {" "}Services
+            </span>
           </h2>
-          <div className="flex items-center justify-center mb-8">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent to-primary"></div>
-            <div className="mx-6 w-4 h-4 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse"></div>
-            <div className="h-px w-24 bg-gradient-to-l from-transparent to-primary"></div>
-          </div>
-          <p className="font-body text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Experience luxury beauty services crafted with precision and delivered with excellence
-          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
         </div>
-
-        {/* Enhanced services grid */}
-        <div ref={servicesRef} className={`grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-20 transition-all duration-1000 delay-200 ${
-          servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-        }`}>
-          {services.map((service, index) => (
-            <div 
-              key={service.title}
-              className={`group bg-gradient-to-br from-background to-muted/30 rounded-3xl p-8 border border-border/50 hover:border-primary/30 hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden transition-all duration-1000 delay-${300 + index * 100}`}
-            >
-              {/* Enhanced background effects */}
-              <div className="absolute inset-0 bg-texture-elegant opacity-5 group-hover:opacity-10 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="relative z-10">
-                {/* Enhanced service icon */}
-                <div className="w-16 h-16 bg-gradient-to-r from-primary/10 to-yellow-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className="h-8 w-8 text-primary" />
+        
+        {/* Enhanced luxury services grid */}
+        <div ref={servicesRef} className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 transition-opacity duration-700 delay-400 ${servicesVisible ? 'opacity-100' : 'opacity-0'}`}>
+          {/* Hair Styling */}
+          <div className="group">
+            <div className="bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 p-8 h-full">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Scissors className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Hair Styling</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                From classic cuts to modern trends, our expert stylists create personalized looks that enhance your natural beauty.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Precision Cutting</span>
                 </div>
-                
-                {/* Service content */}
-                <h3 className="font-display text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
-                  {service.title}
-                </h3>
-                
-                <p className="font-body text-muted-foreground mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-                
-                {/* Enhanced features list */}
-                <div className="space-y-3 mb-6">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center space-x-3 group-hover:translate-x-2 transition-transform duration-300">
-                      <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="font-body text-sm text-muted-foreground">{feature}</span>
-                    </div>
-                  ))}
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Color & Highlights</span>
                 </div>
-                
-                {/* Enhanced price display */}
-                <div className="flex items-center justify-between">
-                  <span className="font-display text-xl font-bold text-primary">
-                    {service.price}
-                  </span>
-                  <div className="w-8 h-8 bg-gradient-to-r from-primary/10 to-yellow-500/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <ArrowRight className="h-4 w-4 text-primary" />
-                  </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Styling & Updos</span>
                 </div>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Beauty Treatments */}
+          <div className="group">
+            <div className="bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 p-8 h-full">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Sparkles className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Beauty Treatments</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Indulge in luxurious beauty treatments designed to rejuvenate your skin and enhance your natural radiance.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Facial Treatments</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Skin Care</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Anti-Aging Solutions</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Spa & Wellness */}
+          <div className="group">
+            <div className="bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 p-8 h-full">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Heart className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Spa & Wellness</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Escape to tranquility with our premium spa services that promote relaxation and overall well-being.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Massage Therapy</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Body Treatments</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Wellness Programs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Nail Care */}
+          <div className="group">
+            <div className="bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 p-8 h-full">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Star className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Nail Care</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Professional nail care services that combine artistry with hygiene for beautiful, healthy nails.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Manicures</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Pedicures</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Nail Art</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Makeup & Styling */}
+          <div className="group">
+            <div className="bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 p-8 h-full">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Palette className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Makeup & Styling</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Professional makeup application and styling for special occasions, photoshoots, and everyday glamour.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Bridal Makeup</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Event Styling</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Personal Styling</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Consultation & Planning */}
+          <div className="group">
+            <div className="bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 p-8 h-full">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Calendar className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Consultation & Planning</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Personalized consultation services to help you plan your perfect look and achieve your beauty goals.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Style Consultation</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Treatment Planning</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Follow-up Care</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Enhanced CTA section */}

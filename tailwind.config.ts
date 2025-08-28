@@ -7,6 +7,72 @@ export default {
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
+		"./index.html",
+	],
+	safelist: [
+		// Animation classes that must be preserved
+		'animate-float',
+		'animate-shimmer',
+		'animate-fade-in',
+		'animate-gold-glow',
+		'animate-luxury-pulse',
+		'animate-pulse',
+		'animate-bounce',
+		'animate-ping',
+		'animate-spin',
+		// Transition classes
+		'transition-all',
+		'transition-opacity',
+		'transition-transform',
+		'transition-colors',
+		'transition-shadow',
+		// Duration classes
+		'duration-300',
+		'duration-500',
+		'duration-700',
+		'duration-1000',
+		// Easing classes
+		'ease-out',
+		'ease-in-out',
+		'ease-linear',
+		// Transform classes
+		'translate-y-0',
+		'translate-y-20',
+		'translate-y-16',
+		'translate-y-10',
+		'translate-x-0',
+		'scale-100',
+		'scale-75',
+		'scale-95',
+		'scale-105',
+		'scale-110',
+		// Opacity classes
+		'opacity-0',
+		'opacity-100',
+		// Animation keyframes that must be preserved
+		'@keyframes float',
+		'@keyframes shimmer',
+		'@keyframes fadeIn',
+		'@keyframes goldGlow',
+		'@keyframes luxuryPulse',
+		// Custom animation classes
+		'bg-texture-luxury',
+		'bg-texture-elegant',
+		'hover-luxury',
+		'hover-gold',
+		'btn-luxury',
+		'btn-outline-luxury',
+		'card-luxury',
+		'card-premium',
+		'shadow-elegant',
+		'shadow-premium',
+		'shadow-luxury',
+		'shadow-gold',
+		'bg-gradient-luxury',
+		'bg-gradient-champagne',
+		'bg-gradient-ivory',
+		'bg-gradient-gold',
+		'bg-gradient-shimmer',
 	],
 	prefix: "",
 	theme: {
@@ -148,6 +214,19 @@ export default {
 				'bounce-gentle': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-5px)' }
+				},
+				// Add the missing keyframes from your CSS
+				'fadeIn': {
+					from: { opacity: '0', transform: 'translateY(20px)' },
+					to: { opacity: '1', transform: 'translateY(0)' }
+				},
+				'goldGlow': {
+					'0%, 100%': { boxShadow: '0 0 20px hsl(217 155 55 / 0.3)' },
+					'50%': { boxShadow: '0 0 40px hsl(217 155 55 / 0.6)' }
+				},
+				'luxuryPulse': {
+					'0%, 100%': { transform: 'scale(1)', opacity: '1' },
+					'50%': { transform: 'scale(1.05)', opacity: '0.8' }
 				}
 			},
 			animation: {
@@ -159,7 +238,11 @@ export default {
 				'glow': 'glow 3s ease-in-out infinite',
 				'float': 'float 3s ease-in-out infinite',
 				'pulse-gold': 'pulse-gold 2s infinite',
-				'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite'
+				'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite',
+				// Add the missing animations
+				'fadeIn': 'fadeIn 0.8s ease-out forwards',
+				'goldGlow': 'goldGlow 3s ease-in-out infinite',
+				'luxuryPulse': 'luxuryPulse 4s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

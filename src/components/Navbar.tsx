@@ -44,33 +44,38 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8 ml-auto mr-8">
             <button 
               onClick={() => scrollToSection('hero')}
-              className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
+              className="text-foreground hover:text-primary transition-colors duration-300 font-medium relative group"
             >
               Home
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
+              className="text-foreground hover:text-primary transition-colors duration-300 font-medium relative group"
             >
               About
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </button>
             <button 
               onClick={() => scrollToSection('services')}
-              className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
+              className="text-foreground hover:text-primary transition-colors duration-300 font-medium relative group"
             >
               Services
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </button>
             <button 
               onClick={() => scrollToSection('testimonials')}
-              className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
+              className="text-foreground hover:text-primary transition-colors duration-300 font-medium relative group"
             >
               Testimonials
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
+              className="text-foreground hover:text-primary transition-colors duration-300 font-medium relative group"
             >
               Contact
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </button>
           </div>
           

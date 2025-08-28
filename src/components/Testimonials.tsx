@@ -1,132 +1,170 @@
-import { Star, Quote, Heart, Crown } from "lucide-react";
+import { Star, Quote, Heart, Crown, Sparkles, Award, Users } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export const Testimonials = () => {
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation(0.1);
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation(0.2);
   const { ref: testimonialsRef, isVisible: testimonialsVisible } = useScrollAnimation(0.3);
-  const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation(0.4);
-
-  const testimonials = [
-    {
-      id: 1,
-      name: "Sarah Johnson",
-      role: "Regular Client",
-      rating: 5,
-      content: "SCRAFT Salon has completely transformed my beauty routine. The attention to detail and luxury experience is unmatched. Every visit feels like a special occasion.",
-      avatar: "SJ"
-    },
-    {
-      id: 2,
-      name: "Michael Chen",
-      role: "First-time Visitor",
-      rating: 5,
-      content: "I was blown away by the professionalism and quality of service. The stylists are true artists who understand exactly what you want. Highly recommended!",
-      avatar: "MC"
-    },
-    {
-      id: 3,
-      name: "Emily Rodriguez",
-      role: "Bridal Client",
-      rating: 5,
-      content: "My wedding day look was absolutely perfect! The team at SCRAFT went above and beyond to make me feel beautiful and confident. It was a dream experience.",
-      avatar: "ER"
-    }
-  ];
-
-  const stats = [
-    { number: "500+", label: "Happy Clients", icon: Heart },
-    { number: "98%", label: "Satisfaction Rate", icon: Star },
-    { number: "15+", label: "Years Experience", icon: Crown },
-    { number: "24/7", label: "Support Available", icon: Crown }
-  ];
 
   return (
-    <section id="testimonials" ref={sectionRef} className="py-24 relative overflow-hidden">
+    <section id="testimonials" ref={sectionRef} className={`py-24 relative overflow-hidden transition-opacity duration-700 ${sectionVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Enhanced luxury background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-background"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-muted/30 via-background to-muted/20"></div>
       
       {/* Luxury texture overlay */}
-      <div className="absolute inset-0 bg-texture-luxury opacity-5"></div>
+      <div className="absolute inset-0 bg-texture-luxury opacity-10"></div>
       
       <div className="container mx-auto px-6 relative z-10">
-        {/* Enhanced section header */}
-        <div ref={titleRef} className={`text-center mb-20 transition-all duration-1000 ${
-          titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-        }`}>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
-            What Our
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"> Clients Say</span>
+        {/* Enhanced luxury section title */}
+        <div ref={titleRef} className={`text-center mb-16 transition-opacity duration-700 delay-200 ${titleVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            What Our Clients
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary">
+              {" "}Say
+            </span>
           </h2>
-          <div className="flex items-center justify-center mb-8">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent to-primary"></div>
-            <div className="mx-6 w-4 h-4 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse"></div>
-            <div className="h-px w-24 bg-gradient-to-l from-transparent to-primary"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+        </div>
+        
+        {/* Enhanced luxury testimonials grid */}
+        <div ref={testimonialsRef} className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 transition-opacity duration-700 delay-400 ${testimonialsVisible ? 'opacity-100' : 'opacity-0'}`}>
+          {/* Testimonial 1 */}
+          <div className="group">
+            <div className="bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 p-8 h-full">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mr-4">
+                  <Star className="h-6 w-6 text-primary fill-current" />
+                </div>
+                <div>
+                  <h4 className="font-display font-semibold text-foreground">Sarah Johnson</h4>
+                  <p className="text-sm text-muted-foreground">Regular Client</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "SCRAFT Salon has transformed my beauty routine. The attention to detail and luxury experience is unmatched. Every visit feels like a special occasion."
+              </p>
+              <div className="flex space-x-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                ))}
+              </div>
+            </div>
           </div>
-          <p className="font-body text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Discover why our clients choose SCRAFT Salon for their beauty and wellness needs
-          </p>
-        </div>
 
-        {/* Enhanced testimonials grid */}
-        <div ref={testimonialsRef} className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 transition-all duration-1000 delay-200 ${
-          testimonialsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-        }`}>
-          {testimonials.map((testimonial, index) => (
-            <div 
-              key={testimonial.id}
-              className={`group bg-gradient-to-br from-background to-muted/30 rounded-3xl p-8 border border-border/50 hover:border-primary/30 hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden transition-all duration-1000 delay-${300 + index * 100}`}
-            >
-              {/* Enhanced background effects */}
-              <div className="absolute inset-0 bg-texture-elegant opacity-5 group-hover:opacity-10 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="relative z-10">
-                {/* Enhanced quote icon */}
-                <div className="w-12 h-12 bg-gradient-to-r from-primary/10 to-yellow-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Quote className="h-6 w-6 text-primary" />
+          {/* Testimonial 2 */}
+          <div className="group">
+            <div className="bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 p-8 h-full">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mr-4">
+                  <Heart className="h-6 w-6 text-primary fill-current" />
                 </div>
-                
-                {/* Enhanced rating */}
-                <div className="flex items-center space-x-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                
-                {/* Enhanced content */}
-                <p className="font-body text-muted-foreground mb-6 leading-relaxed italic">
-                  "{testimonial.content}"
-                </p>
-                
-                {/* Enhanced author info */}
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary/20 to-yellow-500/20 rounded-full flex items-center justify-center text-primary font-display font-bold text-lg">
-                    {testimonial.avatar}
-                  </div>
-                  <div>
-                    <h4 className="font-display font-semibold text-foreground">{testimonial.name}</h4>
-                    <p className="font-body text-sm text-muted-foreground">{testimonial.role}</p>
-                  </div>
+                <div>
+                  <h4 className="font-display font-semibold text-foreground">Michael Chen</h4>
+                  <p className="text-sm text-muted-foreground">First-time Client</p>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Enhanced statistics section */}
-        <div ref={statsRef} className={`grid md:grid-cols-4 gap-8 transition-all duration-1000 delay-400 ${
-          statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-        }`}>
-          {stats.map((stat, index) => (
-            <div key={stat.label} className="text-center group">
-              <div className="w-16 h-16 bg-gradient-to-r from-primary/10 to-yellow-500/10 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
-                <stat.icon className="h-8 w-8 text-primary" />
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "I was hesitant about trying a luxury salon, but SCRAFT exceeded all expectations. The service quality and professional atmosphere are outstanding."
+              </p>
+              <div className="flex space-x-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                ))}
               </div>
-              <div className="font-display text-3xl font-bold text-foreground mb-2">{stat.number}</div>
-              <div className="font-body text-muted-foreground">{stat.label}</div>
             </div>
-          ))}
+          </div>
+
+          {/* Testimonial 3 */}
+          <div className="group">
+            <div className="bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 p-8 h-full">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mr-4">
+                  <Crown className="h-6 w-6 text-primary fill-current" />
+                </div>
+                <div>
+                  <h4 className="font-display font-semibold text-foreground">Emily Rodriguez</h4>
+                  <p className="text-sm text-muted-foreground">VIP Member</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "As a VIP member, I receive exceptional personalized care. The team remembers my preferences and always delivers beyond my expectations."
+              </p>
+              <div className="flex space-x-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Testimonial 4 */}
+          <div className="group">
+            <div className="bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 p-8 h-full">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mr-4">
+                  <Sparkles className="h-6 w-6 text-primary fill-current" />
+                </div>
+                <div>
+                  <h4 className="font-display font-semibold text-foreground">David Thompson</h4>
+                  <p className="text-sm text-muted-foreground">Business Professional</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "Perfect for business professionals who need to look their best. The quality of service and attention to detail is exceptional."
+              </p>
+              <div className="flex space-x-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Testimonial 5 */}
+          <div className="group">
+            <div className="bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 p-8 h-full">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mr-4">
+                  <Award className="h-6 w-6 text-primary fill-current" />
+                </div>
+                <div>
+                  <h4 className="font-display font-semibold text-foreground">Lisa Park</h4>
+                  <p className="text-sm text-muted-foreground">Beauty Enthusiast</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "I've tried many salons, but SCRAFT stands out for their innovative techniques and premium products. Worth every penny!"
+              </p>
+              <div className="flex space-x-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Testimonial 6 */}
+          <div className="group">
+            <div className="bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 p-8 h-full">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mr-4">
+                  <Users className="h-6 w-6 text-primary fill-current" />
+                </div>
+                <div>
+                  <h4 className="font-display font-semibold text-foreground">Robert Kim</h4>
+                  <p className="text-sm text-muted-foreground">Family Client</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "My entire family comes here. The staff is professional, friendly, and always delivers exceptional results. Highly recommended!"
+              </p>
+              <div className="flex space-x-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

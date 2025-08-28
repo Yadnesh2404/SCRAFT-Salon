@@ -30,17 +30,17 @@ export const useScrollAnimation = (options: ScrollAnimationOptions | number = {}
     if (!isVisible) {
       switch (direction) {
         case 'up':
-          return 'translateY(20px)';
+          return 'translateY(30px)';
         case 'down':
-          return 'translateY(-20px)';
+          return 'translateY(-30px)';
         case 'left':
-          return 'translateX(20px)';
+          return 'translateX(30px)';
         case 'right':
-          return 'translateX(-20px)';
+          return 'translateX(-30px)';
         case 'none':
           return 'scale(0.95)';
         default:
-          return 'translateY(20px)';
+          return 'translateY(30px)';
       }
     }
     return 'translateY(0) scale(1)';
@@ -51,6 +51,13 @@ export const useScrollAnimation = (options: ScrollAnimationOptions | number = {}
   }, []);
 
   useEffect(() => {
+    // Ensure Intersection Observer is available (production-safe)
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+      // Fallback for environments without Intersection Observer
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -92,9 +99,9 @@ export const useScrollAnimation = (options: ScrollAnimationOptions | number = {}
     };
   }, [threshold, rootMargin, triggerOnce, hasTriggered, delay]);
 
-  // Enhanced animation classes
+  // Simple animation classes with production-safe fallbacks
   const getAnimationClasses = useCallback(() => {
-    const baseClasses = 'transition-all duration-1000 ease-out';
+    const baseClasses = 'transition-all duration-700 ease-out';
     const transformValue = getTransformValue(isVisible, direction);
     const opacityValue = getOpacityValue(isVisible);
     
@@ -102,7 +109,11 @@ export const useScrollAnimation = (options: ScrollAnimationOptions | number = {}
       className: `${baseClasses}`,
       style: {
         transform: transformValue,
-        opacity: opacityValue
+        opacity: opacityValue,
+        // Ensure animations work in production
+        willChange: 'transform, opacity',
+        backfaceVisibility: 'hidden',
+        WebkitBackfaceVisibility: 'hidden',
       }
     };
   }, [isVisible, direction, getTransformValue, getOpacityValue]);
