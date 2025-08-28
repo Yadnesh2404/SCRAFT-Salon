@@ -26,13 +26,13 @@ export const About = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
         </div>
-        
+
         {/* Enhanced luxury content */}
         <div ref={contentRef} className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 transition-opacity duration-700 delay-400 ${contentVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="space-y-6">
+            <div className="space-y-6">
             <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground">
               Where Luxury Meets Artistry
-            </h3>
+              </h3>
             <p className="text-muted-foreground leading-relaxed">
               Founded with a vision to create an unparalleled luxury experience, SCRAFT Salon has been at the forefront of beauty and wellness innovation. Our commitment to excellence spans over a decade, serving discerning clients who demand nothing but the best.
             </p>
@@ -43,14 +43,14 @@ export const About = () => {
               <div className="flex items-center space-x-2">
                 <Star className="h-5 w-5 text-primary fill-current" />
                 <span className="text-sm font-medium text-muted-foreground">Premium Quality</span>
-              </div>
+            </div>
               <div className="flex items-center space-x-2">
                 <Award className="h-5 w-5 text-primary fill-current" />
                 <span className="text-sm font-medium text-muted-foreground">Award Winning</span>
               </div>
             </div>
           </div>
-          
+
           <div className="relative">
             <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 border border-primary/20">
               <div className="grid grid-cols-2 gap-6">
@@ -68,7 +68,7 @@ export const About = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Enhanced luxury stats */}
         <div ref={statsRef} className={`grid md:grid-cols-4 gap-8 transition-opacity duration-700 delay-600 ${statsVisible ? 'opacity-100' : 'opacity-0'}`}>
           <div className="text-center group">

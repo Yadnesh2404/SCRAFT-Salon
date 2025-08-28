@@ -2,10 +2,10 @@ import { Star, Sparkles, Crown, Heart, Users, Award, Clock, Zap, ArrowRight, Sci
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export const Services = () => {
-  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation(0.1);
-  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation(0.2);
-  const { ref: servicesRef, isVisible: servicesVisible } = useScrollAnimation(0.3);
-  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation(0.4);
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation(0.05);
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation(0.05);
+  const { ref: servicesRef, isVisible: servicesVisible } = useScrollAnimation(0.05);
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation(0.05);
 
   const services = [
     {
@@ -39,7 +39,7 @@ export const Services = () => {
   ];
 
   return (
-    <section id="services" ref={sectionRef} className={`py-24 relative overflow-hidden transition-opacity duration-700 ${sectionVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <section id="services" ref={sectionRef} className={`py-24 relative overflow-hidden transition-opacity duration-500 ${sectionVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Enhanced luxury background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-background"></div>
       
@@ -65,7 +65,7 @@ export const Services = () => {
             <div className="bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 p-8 h-full">
               <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Scissors className="h-8 w-8 text-primary" />
-              </div>
+          </div>
               <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Hair Styling</h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 From classic cuts to modern trends, our expert stylists create personalized looks that enhance your natural beauty.
@@ -85,7 +85,7 @@ export const Services = () => {
                 </div>
               </div>
             </div>
-          </div>
+        </div>
 
           {/* Beauty Treatments */}
           <div className="group">
@@ -139,8 +139,8 @@ export const Services = () => {
                 </div>
               </div>
             </div>
-          </div>
-
+                </div>
+                
           {/* Nail Care */}
           <div className="group">
             <div className="bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 p-8 h-full">
@@ -188,13 +188,13 @@ export const Services = () => {
                   <span className="text-sm text-muted-foreground">Event Styling</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
                   <span className="text-sm text-muted-foreground">Personal Styling</span>
                 </div>
               </div>
-            </div>
-          </div>
-
+                    </div>
+                </div>
+                
           {/* Consultation & Planning */}
           <div className="group">
             <div className="bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 p-8 h-full">
@@ -217,10 +217,10 @@ export const Services = () => {
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
                   <span className="text-sm text-muted-foreground">Follow-up Care</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
 
         {/* Enhanced CTA section */}

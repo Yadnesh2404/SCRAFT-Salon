@@ -24,25 +24,25 @@ export const Footer = () => {
                   <Crown className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="font-display text-2xl font-bold text-background">SCRAFT Salon</h3>
-              </div>
+            </div>
               <p className="text-background/80 leading-relaxed mb-6 max-w-md">
-                Redefining luxury in hair, beauty & spa. Experience world-class grooming and care in a setting where every detail is crafted to perfection.
-              </p>
-              <div className="flex space-x-4">
+              Redefining luxury in hair, beauty & spa. Experience world-class grooming and care in a setting where every detail is crafted to perfection.
+            </p>
+            <div className="flex space-x-4">
                 <div className="w-10 h-10 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
                   <Phone className="h-5 w-5 text-primary" />
-                </div>
+              </div>
                 <div className="w-10 h-10 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
                   <Mail className="h-5 w-5 text-primary" />
-                </div>
+              </div>
                 <div className="w-10 h-10 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
                   <MapPin className="h-5 w-5 text-primary" />
-                </div>
               </div>
             </div>
+          </div>
 
             {/* Quick Links */}
-            <div>
+                <div>
               <h4 className="font-display text-lg font-semibold text-background mb-6">Quick Links</h4>
               <ul className="space-y-3">
                 <li><a href="#about" className="text-background/80 hover:text-primary transition-colors duration-300">About Us</a></li>
@@ -50,10 +50,10 @@ export const Footer = () => {
                 <li><a href="#gallery" className="text-background/80 hover:text-primary transition-colors duration-300">Gallery</a></li>
                 <li><a href="#contact" className="text-background/80 hover:text-primary transition-colors duration-300">Contact</a></li>
               </ul>
-            </div>
-
+              </div>
+              
             {/* Services */}
-            <div>
+                <div>
               <h4 className="font-display text-lg font-semibold text-background mb-6">Services</h4>
               <ul className="space-y-3">
                 <li><a href="#services" className="text-background/80 hover:text-primary transition-colors duration-300">Hair Styling</a></li>
@@ -61,9 +61,9 @@ export const Footer = () => {
                 <li><a href="#services" className="text-background/80 hover:text-primary transition-colors duration-300">Spa & Wellness</a></li>
                 <li><a href="#services" className="text-background/80 hover:text-primary transition-colors duration-300">Nail Care</a></li>
               </ul>
-            </div>
-          </div>
-
+                </div>
+              </div>
+              
           {/* Enhanced luxury divider */}
           <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent mb-8"></div>
 
@@ -71,7 +71,7 @@ export const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-background/60 text-sm mb-4 md:mb-0">
               © 2024 SCRAFT Salon. All rights reserved. Crafted with luxury and precision.
-            </div>
+        </div>
             <div className="flex items-center space-x-6">
               <a href="#" className="text-background/60 hover:text-primary transition-colors duration-300 text-sm">Privacy Policy</a>
               <a href="#" className="text-background/60 hover:text-primary transition-colors duration-300 text-sm">Terms of Service</a>

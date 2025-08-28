@@ -16,12 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Gold accent system - Luxury metallic tones */
+    /* Gold accent system - Luxury metallic tones with custom gold #C9A86A */
     --primary: 43 74% 49%;
     --primary-foreground: 210 40% 98%;
     
     --secondary: 45 93% 47%;
     --secondary-foreground: 222.2 84% 4.9%;
+
+    /* Custom luxury gold color #C9A86A */
+    --luxury-gold: 43 39% 59%;
+    --ivory-bg: 45 25% 97%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -117,30 +121,30 @@
 }
 
 @layer components {
-  /* Enhanced luxury alternating section backgrounds */
-  section:nth-child(even) {
-    background: linear-gradient(135deg, hsl(45 25% 97%) 0%, hsl(0 0% 100%) 100%);
-    position: relative;
-  }
+/* Enhanced luxury alternating section backgrounds with ivory (#F8F5F0) */
+section:nth-child(even) {
+  background: #F8F5F0;
+  position: relative;
+}
 
-  section:nth-child(odd) {
-    background: hsl(0 0% 100%);
-    position: relative;
-  }
+section:nth-child(odd) {
+  background: hsl(0 0% 100%);
+  position: relative;
+}
 
-  /* Enhanced luxury gold divider lines between sections */
-  section:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, hsl(217 155 55), hsl(45 93% 47), transparent);
-    opacity: 0.8;
-    border-radius: 1px;
-  }
+/* Enhanced luxury gold divider lines between sections with custom gold */
+section:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C9A86A, transparent);
+  opacity: 0.6;
+  border-radius: 1px;
+}
 
   /* Basic performance optimizations for smooth animations */
   @media (min-width: 768px) {
@@ -177,102 +181,102 @@
     }
   }
 
-  /* Enhanced luxury mobile centering and responsiveness */
-  @media (max-width: 768px) {
-    .container {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-    
-    /* Ensure proper centering on mobile */
-    .text-center {
-      text-align: center;
-    }
-    
-    /* Better mobile grid layouts */
-    .grid {
-      gap: 1rem;
-    }
-    
-    /* Improved mobile spacing */
-    .py-24 {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
-    
-    .py-32 {
-      padding-top: 5rem;
-      padding-bottom: 5rem;
-    }
-    
-    /* Better mobile margins */
-    .mb-20 {
-      margin-bottom: 3rem;
-    }
-    
-    .mb-24 {
-      margin-bottom: 4rem;
-    }
-    
-    /* Enhanced mobile text sizes */
-    .text-4xl {
-      font-size: 2.25rem;
-      line-height: 2.5rem;
-    }
-    
-    .text-5xl {
-      font-size: 3rem;
-      line-height: 1;
-    }
-    
-    .text-6xl {
-      font-size: 3.75rem;
-      line-height: 1;
-    }
-    
-    .text-7xl {
-      font-size: 4.5rem;
-      line-height: 1;
-    }
-    
-    /* Better mobile button sizing */
-    .px-6 {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-    
-    .py-3 {
-      padding-top: 0.75rem;
-      padding-bottom: 0.75rem;
-    }
-    
-    /* Improved mobile card layouts */
-    .p-6 {
-      padding: 1.25rem;
-    }
-    
-    .rounded-2xl {
-      border-radius: 1rem;
-    }
-    
-    /* Better mobile spacing between elements */
-    .space-y-6 > * + * {
-      margin-top: 1.25rem;
-    }
-    
-    .space-y-8 > * + * {
-      margin-top: 1.5rem;
-    }
+/* Enhanced luxury mobile centering and responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
+  
+  /* Ensure proper centering on mobile */
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Better mobile grid layouts */
+  .grid {
+    gap: 1rem;
+  }
+  
+  /* Improved mobile spacing */
+  .py-24 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  .py-32 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  
+  /* Better mobile margins */
+  .mb-20 {
+    margin-bottom: 3rem;
+  }
+  
+  .mb-24 {
+    margin-bottom: 4rem;
+  }
+  
+  /* Enhanced mobile text sizes */
+  .text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  
+  .text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+  
+  .text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+  
+  .text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+  
+  /* Better mobile button sizing */
+  .px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  
+  /* Improved mobile card layouts */
+  .p-6 {
+    padding: 1.25rem;
+  }
+  
+  .rounded-2xl {
+    border-radius: 1rem;
+  }
+  
+  /* Better mobile spacing between elements */
+  .space-y-6 > * + * {
+    margin-top: 1.25rem;
+  }
+  
+  .space-y-8 > * + * {
+    margin-top: 1.5rem;
+  }
+}
 
-  /* Luxury texture patterns */
-  .bg-texture-luxury {
+/* Luxury texture patterns */
+.bg-texture-luxury {
     background-image: 
     radial-gradient(circle at 25% 25%, hsl(217 155 55 / 0.03) 0%, transparent 50%),
     radial-gradient(circle at 75% 75%, hsl(45 93% 47 / 0.03) 0%, transparent 50%);
   }
 
-  .bg-texture-elegant {
+.bg-texture-elegant {
     background-image: 
     linear-gradient(45deg, hsl(217 155 55 / 0.02) 25%, transparent 25%),
     linear-gradient(-45deg, hsl(217 155 55 / 0.02) 25%, transparent 25%),
@@ -282,41 +286,41 @@
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   }
 
-  /* Luxury hover effects */
-  .hover-luxury {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+/* Luxury hover effects */
+.hover-luxury {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  .hover-luxury:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px hsl(217 155 55 / 0.15);
-  }
+.hover-luxury:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px hsl(217 155 55 / 0.15);
+}
 
-  .hover-gold {
-    transition: all 0.3s ease;
-  }
+.hover-gold {
+  transition: all 0.3s ease;
+}
 
-  .hover-gold:hover {
-    color: hsl(217 155 55);
-    transform: scale(1.05);
-  }
+.hover-gold:hover {
+  color: hsl(217 155 55);
+  transform: scale(1.05);
+}
 
-  /* Luxury button styles */
-  .btn-luxury {
-    @apply bg-gradient-to-r from-primary to-secondary text-white font-semibold px-8 py-4 rounded-2xl shadow-luxury hover:shadow-gold transition-all duration-500 transform hover:scale-105;
-  }
+/* Luxury button styles */
+.btn-luxury {
+  @apply bg-gradient-to-r from-primary to-secondary text-white font-semibold px-8 py-4 rounded-2xl shadow-luxury hover:shadow-gold transition-all duration-500 transform hover:scale-105;
+}
 
-  .btn-outline-luxury {
-    @apply bg-transparent text-primary border-2 border-primary font-semibold px-8 py-4 rounded-2xl hover:bg-primary hover:text-white transition-all duration-500 transform hover:scale-105 shadow-elegant hover:shadow-gold;
-  }
+.btn-outline-luxury {
+  @apply bg-transparent text-primary border-2 border-primary font-semibold px-8 py-4 rounded-2xl hover:bg-primary hover:text-white transition-all duration-500 transform hover:scale-105 shadow-elegant hover:shadow-gold;
+}
 
-  /* Luxury card styles */
-  .card-luxury {
-    @apply bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2;
-  }
+/* Luxury card styles */
+.card-luxury {
+  @apply bg-white border border-border/50 rounded-2xl shadow-elegant hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2;
+}
 
-  .card-premium {
-    @apply bg-gradient-to-br from-white to-muted/30 border border-primary/20 rounded-3xl shadow-premium hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-3;
+.card-premium {
+  @apply bg-gradient-to-br from-white to-muted/30 border border-primary/20 rounded-3xl shadow-premium hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-3;
   }
 
   /* Luxury shadow styles */
