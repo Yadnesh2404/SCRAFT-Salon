@@ -99,20 +99,12 @@ export const Contact = () => {
                   <label className="block font-body font-medium text-foreground mb-2">Phone</label>
                   <input 
                     type="tel" 
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-muted/50 border border-border/30 rounded-xl focus:border-primary focus:outline-none transition-colors duration-300"
                     placeholder="Your phone number"
                   />
-                </div>
-                
-                <div>
-                  <label className="block font-body font-medium text-foreground mb-2">Service Interest</label>
-                  <select className="w-full px-4 py-3 bg-muted/50 border border-border/30 rounded-xl focus:border-primary focus:outline-none transition-colors duration-300">
-                    <option>Select a service</option>
-                    <option>Hair Styling</option>
-                    <option>Beauty & Makeup</option>
-                    <option>Spa & Wellness</option>
-                    <option>Consultation</option>
-                  </select>
                 </div>
                 
                 <div>
