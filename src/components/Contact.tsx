@@ -1,7 +1,4 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook, MessageCircle, Send, Star, MessageSquare, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
@@ -12,16 +9,50 @@ export const Contact = () => {
     name: '',
     email: '',
     phone: '',
+    preferredDate: '',
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you within 24 hours.",
-    });
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const data = {
+        Name: formData.name,
+        Email: formData.email,
+        Phone: formData.phone,
+        PreferredDate: formData.preferredDate,
+        Message: formData.message
+      };
+
+      const response = await fetch("https://script.google.com/macros/s/AKfycbytL4vfXw7jxG5NVGU_6BYJHKf214sLYvSzg1nFa6xHLGJtwMwzWMfpeKubsATEgdj3/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+      });
+
+      // With no-cors mode, we can't read the response, so assume success
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+      });
+      setFormData({ name: '', email: '', phone: '', preferredDate: '', message: '' });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or contact us directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -75,12 +106,16 @@ export const Contact = () => {
                 Send Us a Message
               </h3>
               
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block font-body font-medium text-foreground mb-2">Name</label>
                     <input 
                       type="text" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
                       className="w-full px-4 py-3 bg-muted/50 border border-border/30 rounded-xl focus:border-primary focus:outline-none transition-colors duration-300"
                       placeholder="Your full name"
                     />
@@ -89,6 +124,10 @@ export const Contact = () => {
                     <label className="block font-body font-medium text-foreground mb-2">Email</label>
                     <input 
                       type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
                       className="w-full px-4 py-3 bg-muted/50 border border-border/30 rounded-xl focus:border-primary focus:outline-none transition-colors duration-300"
                       placeholder="your.email@example.com"
                     />
@@ -111,6 +150,10 @@ export const Contact = () => {
                   <label className="block font-body font-medium text-foreground mb-2">Preferred Date</label>
                   <input 
                     type="date" 
+                    name="preferredDate"
+                    value={formData.preferredDate}
+                    onChange={handleInputChange}
+                    min={new Date().toISOString().split('T')[0]}
                     className="w-full px-4 py-3 bg-muted/50 border border-border/30 rounded-xl focus:border-primary focus:outline-none transition-colors duration-300"
                   />
                 </div>
@@ -119,6 +162,10 @@ export const Contact = () => {
                   <label className="block font-body font-medium text-foreground mb-2">Message</label>
                   <textarea 
                     rows={4}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 bg-muted/50 border border-border/30 rounded-xl focus:border-primary focus:outline-none transition-colors duration-300 resize-none"
                     placeholder="Tell us about your beauty goals..."
                   ></textarea>
@@ -126,11 +173,21 @@ export const Contact = () => {
                 
                 <button 
                   type="submit"
-                  className="w-full btn-luxury group"
+                  disabled={isSubmitting}
+                  className="w-full btn-luxury group disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <span className="relative z-10 flex items-center justify-center">
-                    <Send className="mr-2 h-5 w-5" />
-                    Send Message
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2 h-5 w-5" />
+                        Send Message
+                      </>
+                    )}
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </button>
